@@ -1662,13 +1662,27 @@
 </div>
 
 <script>
+  /* ── Variables globales pour les fonctions ── */
+  let welcomeOverlay, garden, taskInput, plants, firstVisit, STAGES;
+  let quizForm, quizDone, quizQuestions;
+  let adminOverlay, adminLoggedIn;
+  let secretDoor, confessionRoom, lockForm, doorBlockMsg, doorWaitMsg, doorPassword, doorError, doorUnlocked;
+  let medallion, flowerOverlay, flowerMessage, noteInput;
+  let capsuleInput, capsuleSaved, savedCapsule;
+  let surpriseText;
+  let mascotTips;
+  const QUIZ_KEY = 'jardin_questionnaire';
+  const AUTH_KEY = 'jardin_aveux_authorized';
+  const ADMIN_PASSWORD = 'maurelle';
+  const SECRET_PASSWORD = 'hanieljtm';
+
 document.addEventListener('DOMContentLoaded', function() {
   /* ── Écran d'accueil ── */
-  const welcomeOverlay = document.getElementById('welcomeOverlay');
+  welcomeOverlay = document.getElementById('welcomeOverlay');
   if(localStorage.getItem('jardin_welcomed')){
     welcomeOverlay.classList.add('hide');
   }
-  function closeWelcome(){
+  window.closeWelcome = function(){
     localStorage.setItem('jardin_welcomed', '1');
     welcomeOverlay.classList.add('hide');
     spawnConfetti(window.innerWidth / 2, window.innerHeight / 2, 30);
@@ -1872,12 +1886,12 @@ document.addEventListener('DOMContentLoaded', function() {
   })();
 
   /* ── Jardin ── */
-  const STAGES = ['🌰','🌱','🌿','🌸'];
-  const garden = document.getElementById('garden');
-  const taskInput = document.getElementById('taskInput');
+  STAGES = ['🌰','🌱','🌿','🌸'];
+  garden = document.getElementById('garden');
+  taskInput = document.getElementById('taskInput');
 
-  let plants = JSON.parse(localStorage.getItem('jardin_plants') || '[]');
-  let firstVisit = localStorage.getItem('jardin_first_visit');
+  plants = JSON.parse(localStorage.getItem('jardin_plants') || '[]');
+  firstVisit = localStorage.getItem('jardin_first_visit');
   if(!firstVisit){
     firstVisit = new Date().toISOString();
     localStorage.setItem('jardin_first_visit', firstVisit);
@@ -1925,7 +1939,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return d.innerHTML;
   }
 
-  function plantTask(){
+  window.plantTask = function(){
     const val = taskInput.value.trim();
     if(!val) return;
     plants.push({text: val, stage: 0});
@@ -1933,7 +1947,7 @@ document.addEventListener('DOMContentLoaded', function() {
     save();
     render();
   }
-  taskInput.addEventListener('keydown', e => { if(e.key === 'Enter') plantTask(); });
+  taskInput.addEventListener('keydown', e => { if(e.key === 'Enter') window.plantTask(); });
 
   function water(i){
     if(plants[i].stage < STAGES.length - 1){
@@ -1983,31 +1997,31 @@ document.addEventListener('DOMContentLoaded', function() {
     "N'oublie jamais : tu es aimée, tu es importante.",
     "Chaque petit pas compte — comme chaque plante de ton jardin."
   ];
-  const surpriseText = document.getElementById('surpriseText');
-  function newSurprise(){
+  surpriseText = document.getElementById('surpriseText');
+  window.newSurprise = function(){
     let s;
     do { s = surprises[Math.floor(Math.random()*surprises.length)]; } while(s === surpriseText.textContent && surprises.length > 1);
     surpriseText.textContent = s;
   }
-  newSurprise();
+  window.newSurprise();
 
   /* ── Capsule du temps ── */
-  const capsuleInput = document.getElementById('capsuleInput');
-  const capsuleSaved = document.getElementById('capsuleSaved');
-  const savedCapsule = localStorage.getItem('jardin_capsule');
+  capsuleInput = document.getElementById('capsuleInput');
+  capsuleSaved = document.getElementById('capsuleSaved');
+  savedCapsule = localStorage.getItem('jardin_capsule');
   if(savedCapsule) capsuleInput.value = savedCapsule;
 
-  function saveCapsule(){
+  window.saveCapsule = function(){
     localStorage.setItem('jardin_capsule', capsuleInput.value);
     capsuleSaved.classList.add('show');
     setTimeout(() => capsuleSaved.classList.remove('show'), 2500);
   }
 
   /* ── Médaillon secret (noms) ── */
-  const medallion = document.getElementById('medallion');
-  const flowerOverlay = document.getElementById('flowerOverlay');
-  const flowerMessage = document.getElementById('flowerMessage');
-  const noteInput = document.getElementById('noteInput');
+  medallion = document.getElementById('medallion');
+  flowerOverlay = document.getElementById('flowerOverlay');
+  flowerMessage = document.getElementById('flowerMessage');
+  noteInput = document.getElementById('noteInput');
 
   function restartAnimation(){
     const lines = medallion.querySelectorAll('path, circle');
@@ -2027,10 +2041,10 @@ document.addEventListener('DOMContentLoaded', function() {
     restartAnimation();
     flowerOverlay.classList.add('active');
   }
-  function closeFlower(){
+  window.closeFlower = function(){
     flowerOverlay.classList.remove('active');
   }
-  flowerOverlay.addEventListener('click', (e) => { if(e.target === flowerOverlay) closeFlower(); });
+  flowerOverlay.addEventListener('click', (e) => { if(e.target === flowerOverlay) window.closeFlower(); });
 
   function checkSecret(value){
     const clean = value.toLowerCase().replace(/\s+/g, '');
@@ -2047,11 +2061,9 @@ document.addEventListener('DOMContentLoaded', function() {
   noteInput.addEventListener('input', () => checkSecret(noteInput.value));
 
   /* ── QUESTIONNAIRE ── */
-  const QUIZ_KEY = 'jardin_questionnaire';
-  const AUTH_KEY = 'jardin_aveux_authorized';
-  const quizForm = document.getElementById('quizForm');
-  const quizDone = document.getElementById('quizDone');
-  const quizQuestions = {
+  quizForm = document.getElementById('quizForm');
+  quizDone = document.getElementById('quizDone');
+  quizQuestions = {
     q1: "Comment te sens-tu quand tu es avec Haniel ?",
     q2: "À quel point te sens-tu à l'aise avec lui ? (1-5)",
     q3: "Penses-tu souvent à lui ?",
@@ -2120,11 +2132,10 @@ document.addEventListener('DOMContentLoaded', function() {
   loadQuizState();
 
   /* ── PANNEAU ADMIN (5 clics sur "pensé par H.") ── */
-  const ADMIN_PASSWORD = 'maurelle';
-  const adminOverlay = document.getElementById('adminOverlay');
+  adminOverlay = document.getElementById('adminOverlay');
   let adminClickCount = 0;
   let adminClickTimer = null;
-  let adminLoggedIn = false;
+  adminLoggedIn = false;
 
   document.getElementById('adminTrigger').addEventListener('click', () => {
     adminClickCount++;
@@ -2144,16 +2155,16 @@ document.addEventListener('DOMContentLoaded', function() {
     adminLoggedIn = false;
     setTimeout(() => document.getElementById('adminPassword').focus(), 300);
   }
-  function closeAdmin(){
+  window.closeAdmin = function(){
     adminOverlay.classList.remove('active');
     adminLoggedIn = false;
   }
-  adminOverlay.addEventListener('click', (e) => { if(e.target === adminOverlay) closeAdmin(); });
+  adminOverlay.addEventListener('click', (e) => { if(e.target === adminOverlay) window.closeAdmin(); });
   document.getElementById('adminPassword').addEventListener('keydown', e => {
-    if(e.key === 'Enter') tryAdminLogin();
+    if(e.key === 'Enter') window.tryAdminLogin();
   });
 
-  function tryAdminLogin(){
+  window.tryAdminLogin = function(){
     const val = document.getElementById('adminPassword').value.toLowerCase().replace(/\s+/g, '');
     if(val === ADMIN_PASSWORD){
       adminLoggedIn = true;
@@ -2195,13 +2206,13 @@ document.addEventListener('DOMContentLoaded', function() {
     answersEl.innerHTML = html;
   }
 
-  function authorizeAccess(){
+  window.authorizeAccess = function(){
     localStorage.setItem(AUTH_KEY, '1');
     renderAdminPanel();
     updateAccessCard();
     alert('Accès autorisé ! Mounira verra maintenant le code sur la page.');
   }
-  function revokeAccess(){
+  window.revokeAccess = function(){
     localStorage.removeItem(AUTH_KEY);
     renderAdminPanel();
     updateAccessCard();
@@ -2209,15 +2220,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   /* ── PORTE SECRÈTE ── */
-  const SECRET_PASSWORD = 'hanieljtm';
-  const secretDoor = document.getElementById('secretDoor');
-  const confessionRoom = document.getElementById('confessionRoom');
-  const lockForm = document.getElementById('lockForm');
-  const doorBlockMsg = document.getElementById('doorBlockMsg');
-  const doorWaitMsg = document.getElementById('doorWaitMsg');
-  const doorPassword = document.getElementById('doorPassword');
-  const doorError = document.getElementById('doorError');
-  let doorUnlocked = false;
+  secretDoor = document.getElementById('secretDoor');
+  confessionRoom = document.getElementById('confessionRoom');
+  lockForm = document.getElementById('lockForm');
+  doorBlockMsg = document.getElementById('doorBlockMsg');
+  doorWaitMsg = document.getElementById('doorWaitMsg');
+  doorPassword = document.getElementById('doorPassword');
+  doorError = document.getElementById('doorError');
+  doorUnlocked = false;
 
   /* Triple-clic discret sur le footer pour ouvrir la porte */
   let clickCount = 0;
@@ -2264,14 +2274,14 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => doorPassword.focus(), 400);
   }
 
-  function closeSecretDoor(){
+  window.closeSecretDoor = function(){
     secretDoor.classList.remove('active');
   }
-  secretDoor.addEventListener('click', (e) => { if(e.target === secretDoor) closeSecretDoor(); });
+  secretDoor.addEventListener('click', (e) => { if(e.target === secretDoor) window.closeSecretDoor(); });
 
-  doorPassword.addEventListener('keydown', e => { if(e.key === 'Enter') tryUnlock(); });
+  doorPassword.addEventListener('keydown', e => { if(e.key === 'Enter') window.tryUnlock(); });
 
-  function tryUnlock(){
+  window.tryUnlock = function(){
     if(!isAuthorized()){
       doorWaitMsg.classList.add('show');
       lockForm.style.display = 'none';
@@ -2298,7 +2308,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   /* ── Confettis ── */
-  function spawnConfetti(x, y, count){
+  window.spawnConfetti = function(x, y, count){
     const colors = ['#F6B8C6','#A9D9BC','#CBB9E8','#F6C453','#E8899F','#D9B25C'];
     for(let i = 0; i < count; i++){
       const c = document.createElement('div');
