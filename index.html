@@ -2861,11 +2861,19 @@
       document.getElementById('adminTrigger').addEventListener('click', () => {
         adminClickCount++;
         clearTimeout(adminClickTimer);
-        adminClickTimer = setTimeout(() => { adminClickCount = 0; }, 800);
+        adminClickTimer = setTimeout(() => { adminClickCount = 0; }, 1500);
         if (adminClickCount >= 5) {
           adminClickCount = 0;
           openAdmin();
         }
+      });
+
+      // Raccourci direct via l'URL : ajouter #admin à la fin
+      if (window.location.hash === '#admin') {
+        openAdmin();
+      }
+      window.addEventListener('hashchange', () => {
+        if (window.location.hash === '#admin') openAdmin();
       });
 
       function openAdmin() {
