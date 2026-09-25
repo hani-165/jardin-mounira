@@ -1,2328 +1,2950 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le jardin de Mounira 🌸</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le jardin de Mounira 🌸</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap');
 
-  :root{
-    --cream: #FFF8EF;
-    --pink: #F6B8C6;
-    --pink-deep: #E8899F;
-    --pink-glow: rgba(246,184,198,0.45);
-    --mint: #A9D9BC;
-    --mint-deep: #6FB894;
-    --lavender: #CBB9E8;
-    --sun: #F6C453;
-    --ink: #4A3B40;
-    --ink-soft: #8A7A80;
-    --gold: #D9B25C;
-  }
+    :root {
+      --cream: #FFF8EF;
+      --pink: #F6B8C6;
+      --pink-deep: #E8899F;
+      --pink-glow: rgba(246, 184, 198, 0.45);
+      --mint: #A9D9BC;
+      --mint-deep: #6FB894;
+      --lavender: #CBB9E8;
+      --sun: #F6C453;
+      --ink: #4A3B40;
+      --ink-soft: #8A7A80;
+      --gold: #D9B25C;
+    }
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+    * {
+      box-sizing: border-box;
+    }
 
-  body{
-    margin:0;
-    background:var(--cream);
-    background-image:
-      radial-gradient(circle at 12% 18%, rgba(246,184,198,0.35) 0, transparent 40%),
-      radial-gradient(circle at 88% 8%, rgba(169,217,188,0.35) 0, transparent 40%),
-      radial-gradient(circle at 92% 85%, rgba(203,185,232,0.3) 0, transparent 40%);
-    color:var(--ink);
-    font-family:'Nunito', sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* Petites particules flottantes */
-  .petals{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
-    overflow:hidden;
-  }
-  .petal{
-    position:absolute;
-    font-size:14px;
-    opacity:0.35;
-    animation:floatPetal linear infinite;
-  }
-  @keyframes floatPetal{
-    0%{transform:translateY(-10vh) rotate(0deg); opacity:0;}
-    10%{opacity:0.35;}
-    90%{opacity:0.35;}
-    100%{transform:translateY(110vh) rotate(360deg); opacity:0;}
-  }
+    body {
+      margin: 0;
+      background: var(--cream);
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(246, 184, 198, 0.35) 0, transparent 40%),
+        radial-gradient(circle at 88% 8%, rgba(169, 217, 188, 0.35) 0, transparent 40%),
+        radial-gradient(circle at 92% 85%, rgba(203, 185, 232, 0.3) 0, transparent 40%);
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-  .wrap{
-    position:relative;
-    z-index:1;
-    max-width:620px;
-    margin:0 auto;
-    padding:48px 22px 70px;
-  }
+    /* Petites particules flottantes */
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
 
-  .hero{
-    text-align:center;
-    margin-bottom:42px;
-  }
-  .mascot{
-    font-size:52px;
-    display:inline-block;
-    animation:sway 3.5s ease-in-out infinite;
-    transform-origin:bottom center;
-    filter:drop-shadow(0 4px 8px var(--pink-glow));
-  }
-  @keyframes sway{
-    0%,100%{transform:rotate(-4deg);}
-    50%{transform:rotate(4deg);}
-  }
+    .petal {
+      position: absolute;
+      font-size: 14px;
+      opacity: 0.35;
+      animation: floatPetal linear infinite;
+    }
 
-  h1{
-    font-family:'Fredoka', sans-serif;
-    font-weight:600;
-    font-size:clamp(30px,6vw,42px);
-    margin:14px 0 8px;
-    background:linear-gradient(135deg, var(--pink-deep), #C97A9A);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
-  }
-  .sub{
-    font-size:15.5px;
-    color:var(--ink-soft);
-    line-height:1.6;
-    max-width:44ch;
-    margin:0 auto 20px;
-  }
+    @keyframes floatPetal {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+      }
 
-  .greeting{
-    display:inline-block;
-    background:linear-gradient(135deg, #fff 0%, #FFF5F8 100%);
-    border:2px solid var(--pink);
-    border-radius:20px;
-    padding:10px 20px;
-    font-size:14px;
-    color:var(--pink-deep);
-    font-weight:600;
-    box-shadow:0 4px 0 rgba(232,137,159,0.12);
-    animation:fadeInUp 0.8s ease;
-  }
-  @keyframes fadeInUp{
-    from{opacity:0; transform:translateY(12px);}
-    to{opacity:1; transform:translateY(0);}
-  }
+      10% {
+        opacity: 0.35;
+      }
 
-  section{
-    margin-bottom:38px;
-    animation:fadeInUp 0.8s ease backwards;
-  }
-  section:nth-child(2){animation-delay:0.1s;}
-  section:nth-child(3){animation-delay:0.2s;}
-  section:nth-child(4){animation-delay:0.3s;}
-  section:nth-child(5){animation-delay:0.4s;}
-  section:nth-child(6){animation-delay:0.5s;}
+      90% {
+        opacity: 0.35;
+      }
 
-  h2{
-    font-family:'Fredoka', sans-serif;
-    font-weight:600;
-    font-size:20px;
-    color:var(--ink);
-    margin:0 0 14px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
 
-  .add-row{
-    display:flex;
-    gap:8px;
-    margin-bottom:20px;
-  }
-  .add-row input{
-    flex:1;
-    border:2px solid var(--pink);
-    background:#fff;
-    border-radius:16px;
-    padding:11px 16px;
-    font-family:inherit;
-    font-size:15px;
-    color:var(--ink);
-    transition:border-color 0.2s, box-shadow 0.2s;
-  }
-  .add-row input:focus{
-    outline:none;
-    border-color:var(--pink-deep);
-    box-shadow:0 0 0 4px var(--pink-glow);
-  }
-  .add-row button{
-    border:none;
-    background:linear-gradient(135deg, var(--pink-deep), #D76C85);
-    color:#fff;
-    padding:0 20px;
-    border-radius:16px;
-    font-family:'Fredoka', sans-serif;
-    font-weight:500;
-    font-size:15px;
-    cursor:pointer;
-    transition:transform 0.15s, box-shadow 0.15s;
-    box-shadow:0 4px 0 #C45A72;
-  }
-  .add-row button:hover{transform:translateY(-2px);}
-  .add-row button:active{transform:translateY(2px); box-shadow:none;}
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 48px 22px 70px;
+    }
 
-  .garden{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(120px,1fr));
-    gap:14px;
-  }
-  .pot{
-    background:#fff;
-    border-radius:20px;
-    padding:16px 10px 14px;
-    text-align:center;
-    box-shadow:0 6px 0 rgba(232,137,159,0.15);
-    cursor:pointer;
-    user-select:none;
-    transition:transform 0.12s ease, box-shadow 0.12s ease;
-    position:relative;
-    overflow:hidden;
-  }
-  .pot::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:radial-gradient(circle at 50% 0%, rgba(246,184,198,0.15), transparent 70%);
-    opacity:0;
-    transition:opacity 0.2s;
-  }
-  .pot:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 0 rgba(232,137,159,0.12);
-  }
-  .pot:hover::before{opacity:1;}
-  .pot .plant{
-    font-size:34px;
-    display:block;
-    margin-bottom:8px;
-    transition:transform 0.25s ease;
-  }
-  .pot.watered .plant{transform:scale(1.15);}
-  .pot .name{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    line-height:1.3;
-    word-break:break-word;
-  }
-  .pot .stage-label{
-    font-size:10.5px;
-    color:var(--mint-deep);
-    font-weight:700;
-    margin-top:4px;
-    text-transform:lowercase;
-  }
-  .pot.bloomed{
-    background:linear-gradient(180deg, #FFF3E0 0%, #FFFAF0 100%);
-    box-shadow:0 6px 0 rgba(246,196,83,0.25);
-  }
-  .pot.bloomed .plant{
-    animation:bloomPulse 2s ease-in-out infinite;
-  }
-  @keyframes bloomPulse{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.08);}
-  }
-  .empty-note{
-    color:var(--ink-soft);
-    font-size:14px;
-    font-style:italic;
-    grid-column:1/-1;
-    text-align:center;
-    padding:20px;
-  }
+    .hero {
+      text-align: center;
+      margin-bottom: 42px;
+    }
 
-  /* Compteur de fleurs */
-  .stats-bar{
-    display:flex;
-    gap:12px;
-    margin-bottom:18px;
-    flex-wrap:wrap;
-  }
-  .stat{
-    flex:1;
-    min-width:100px;
-    background:#fff;
-    border-radius:16px;
-    padding:12px 16px;
-    text-align:center;
-    box-shadow:0 4px 0 rgba(169,217,188,0.15);
-  }
-  .stat .num{
-    font-family:'Fredoka', sans-serif;
-    font-size:22px;
-    color:var(--mint-deep);
-    display:block;
-  }
-  .stat .label{
-    font-size:11px;
-    color:var(--ink-soft);
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-  }
+    .mascot {
+      font-size: 52px;
+      display: inline-block;
+      animation: sway 3.5s ease-in-out infinite;
+      transform-origin: bottom center;
+      filter: drop-shadow(0 4px 8px var(--pink-glow));
+    }
 
-  /* Messages du cœur */
-  .heart-messages{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-  .heart-msg{
-    background:linear-gradient(135deg, #fff 0%, #FFF8FB 100%);
-    border-left:4px solid var(--pink);
-    border-radius:0 16px 16px 0;
-    padding:14px 18px;
-    font-size:14.5px;
-    line-height:1.5;
-    color:var(--ink);
-    transition:transform 0.2s;
-  }
-  .heart-msg:hover{transform:translateX(4px);}
-  .heart-msg .from{
-    display:block;
-    margin-top:6px;
-    font-size:12px;
-    color:var(--pink-deep);
-    font-style:italic;
-  }
+    @keyframes sway {
 
-  .surprise-card{
-    background:linear-gradient(135deg, var(--lavender) 0%, #D4C4ED 100%);
-    border-radius:22px;
-    padding:26px 24px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .surprise-card::after{
-    content:'✨';
-    position:absolute;
-    top:12px;
-    right:16px;
-    font-size:20px;
-    opacity:0.5;
-    animation:twinkle 2s ease-in-out infinite;
-  }
-  @keyframes twinkle{
-    0%,100%{opacity:0.3; transform:scale(1);}
-    50%{opacity:0.8; transform:scale(1.2);}
-  }
-  .surprise-text{
-    font-family:'Fredoka', sans-serif;
-    font-weight:500;
-    font-size:18px;
-    line-height:1.45;
-    margin:0 0 16px;
-    color:#3E2F52;
-    min-height:52px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .surprise-card button{
-    border:none;
-    background:#fff;
-    color:#5B4482;
-    padding:10px 22px;
-    border-radius:16px;
-    font-family:'Fredoka', sans-serif;
-    font-weight:500;
-    font-size:14.5px;
-    cursor:pointer;
-    transition:transform 0.15s, background 0.15s;
-  }
-  .surprise-card button:hover{
-    background:#F3EEFB;
-    transform:scale(1.03);
-  }
+      0%,
+      100% {
+        transform: rotate(-4deg);
+      }
 
-  /* Capsule du temps */
-  .capsule-card{
-    background:linear-gradient(135deg, #E8F5EC 0%, #D4EDDA 100%);
-    border-radius:22px;
-    padding:22px 24px;
-    text-align:center;
-  }
-  .capsule-card p{
-    margin:0 0 14px;
-    font-size:14.5px;
-    color:#3A5A42;
-    line-height:1.5;
-  }
-  .capsule-card textarea{
-    width:100%;
-    border:2px solid var(--mint);
-    border-radius:16px;
-    padding:12px 16px;
-    font-family:inherit;
-    font-size:14px;
-    color:var(--ink);
-    resize:vertical;
-    min-height:80px;
-    margin-bottom:10px;
-  }
-  .capsule-card textarea:focus{
-    outline:none;
-    border-color:var(--mint-deep);
-  }
-  .capsule-card button{
-    border:none;
-    background:var(--mint-deep);
-    color:#fff;
-    padding:10px 20px;
-    border-radius:16px;
-    font-family:'Fredoka', sans-serif;
-    font-size:14px;
-    cursor:pointer;
-  }
-  .capsule-card button:hover{background:#5DA882;}
-  .capsule-saved{
-    margin-top:10px;
-    font-size:13px;
-    color:var(--mint-deep);
-    font-weight:600;
-    opacity:0;
-    transition:opacity 0.3s;
-  }
-  .capsule-saved.show{opacity:1;}
+      50% {
+        transform: rotate(4deg);
+      }
+    }
 
-  footer{
-    text-align:center;
-    font-size:12px;
-    color:var(--ink-soft);
-    margin-top:56px;
-    line-height:1.8;
-  }
-  footer .hint-secret{
-    opacity:0.45;
-    font-size:11px;
-    cursor:default;
-    user-select:none;
-  }
+    h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: clamp(30px, 6vw, 42px);
+      margin: 14px 0 8px;
+      background: linear-gradient(135deg, var(--pink-deep), #C97A9A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-  .note-card{
-    background:#fff;
-    border-radius:22px;
-    padding:22px 22px 20px;
-    box-shadow:0 6px 0 rgba(169,217,188,0.2);
-  }
-  .note-card p.hint{
-    font-size:13.5px;
-    color:var(--ink-soft);
-    margin:0 0 12px;
-  }
-  .note-card input{
-    width:100%;
-    border:2px solid var(--mint);
-    border-radius:16px;
-    padding:11px 16px;
-    font-family:inherit;
-    font-size:15px;
-    color:var(--ink);
-    transition:border-color 0.2s;
-  }
-  .note-card input:focus{
-    outline:none;
-    border-color:var(--mint-deep);
-  }
+    .sub {
+      font-size: 15.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      max-width: 44ch;
+      margin: 0 auto 20px;
+    }
 
-  /* Médaillon secret */
-  .flower-overlay{
-    position:fixed;
-    inset:0;
-    background:radial-gradient(circle at 50% 45%, rgba(46,42,38,0.72) 0%, rgba(46,42,38,0.88) 100%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity 0.5s ease;
-    z-index:999;
-  }
-  .flower-overlay.active{
-    opacity:1;
-    pointer-events:auto;
-  }
-  .medallion{
-    position:relative;
-    width:260px;
-    height:260px;
-  }
-  .medallion svg{
-    width:100%;
-    height:100%;
-    overflow:visible;
-  }
-  .medallion path, .medallion circle{
-    fill:none;
-    stroke:#D9B25C;
-    stroke-width:1.1;
-    stroke-linecap:round;
-    stroke-dasharray:1;
-    stroke-dashoffset:1;
-    opacity:0;
-    animation:drawLine 7s ease-in-out infinite;
-  }
-  .medallion .frame{ stroke-width:0.8; opacity:0; animation:drawFrame 7s ease-in-out infinite; }
-  @keyframes drawLine{
-    0%{ stroke-dashoffset:1; opacity:0; }
-    8%{ opacity:0.9; }
-    42%{ stroke-dashoffset:0; opacity:0.9; }
-    68%{ stroke-dashoffset:0; opacity:0.9; }
-    88%{ opacity:0; }
-    100%{ stroke-dashoffset:1; opacity:0; }
-  }
-  @keyframes drawFrame{
-    0%{ stroke-dashoffset:1; opacity:0; }
-    6%{ opacity:0.5; }
-    40%{ stroke-dashoffset:0; opacity:0.5; }
-    72%{ stroke-dashoffset:0; opacity:0.5; }
-    90%{ opacity:0; }
-    100%{ stroke-dashoffset:1; opacity:0; }
-  }
-  .medallion.theme-hani path, .medallion.theme-hani circle{ stroke:#D9B25C; }
-  .medallion.theme-mounira path, .medallion.theme-mounira circle{ stroke:#B98A99; }
-  .medallion.theme-both path, .medallion.theme-both circle{ stroke:#D9B25C; }
+    .greeting {
+      display: inline-block;
+      background: linear-gradient(135deg, #fff 0%, #FFF5F8 100%);
+      border: 2px solid var(--pink);
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--pink-deep);
+      font-weight: 600;
+      box-shadow: 0 4px 0 rgba(232, 137, 159, 0.12);
+      animation: fadeInUp 0.8s ease;
+    }
 
-  .flower-message{
-    position:absolute;
-    left:50%;
-    bottom:-40px;
-    transform:translateX(-50%);
-    white-space:nowrap;
-    font-family:'Cormorant Garamond', serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:24px;
-    letter-spacing:0.03em;
-    color:#F3EADA;
-    animation:msgFade 7s ease-in-out infinite;
-  }
-  @keyframes msgFade{
-    0%,38%{opacity:0;}
-    48%,68%{opacity:1;}
-    82%,100%{opacity:0;}
-  }
-  .flower-close{
-    position:absolute;
-    top:20px;
-    right:20px;
-    background:rgba(255,255,255,0.15);
-    border:none;
-    color:#F3EADA;
-    width:36px; height:36px;
-    border-radius:50%;
-    font-size:16px;
-    cursor:pointer;
-    z-index:1001;
-  }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
 
-  /* ═══ PORTE SECRÈTE — AVEUX ═══ */
-  .secret-door-overlay{
-    position:fixed;
-    inset:0;
-    background:radial-gradient(ellipse at center, rgba(30,15,25,0.95) 0%, rgba(15,8,12,0.98) 100%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity 0.8s ease;
-    z-index:1000;
-    padding:20px;
-  }
-  .secret-door-overlay.active{
-    opacity:1;
-    pointer-events:auto;
-  }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .secret-door{
-    width:100%;
-    max-width:480px;
-    text-align:center;
-    transform:scale(0.92) translateY(20px);
-    transition:transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .secret-door-overlay.active .secret-door{
-    transform:scale(1) translateY(0);
-  }
+    section {
+      margin-bottom: 38px;
+      animation: fadeInUp 0.8s ease backwards;
+    }
 
-  .door-frame{
-    background:linear-gradient(180deg, #2A1820 0%, #1A0E14 100%);
-    border:3px solid var(--gold);
-    border-radius:24px 24px 8px 8px;
-    padding:40px 32px 36px;
-    position:relative;
-    box-shadow:
-      0 0 60px rgba(217,178,92,0.15),
-      inset 0 1px 0 rgba(217,178,92,0.2);
-  }
-  .door-frame::before{
-    content:'🚪';
-    position:absolute;
-    top:-28px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:36px;
-    filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-  }
-  .door-title{
-    font-family:'Cormorant Garamond', serif;
-    font-size:28px;
-    color:var(--gold);
-    margin:0 0 8px;
-    letter-spacing:0.04em;
-  }
-  .door-sub{
-    font-size:13px;
-    color:rgba(243,234,218,0.55);
-    margin:0 0 28px;
-    font-style:italic;
-  }
+    section:nth-child(2) {
+      animation-delay: 0.1s;
+    }
 
-  .door-lock{
-    display:flex;
-    gap:8px;
-    margin-bottom:12px;
-  }
-  .door-lock input{
-    flex:1;
-    background:rgba(255,255,255,0.06);
-    border:1.5px solid rgba(217,178,92,0.35);
-    border-radius:14px;
-    padding:12px 16px;
-    font-family:inherit;
-    font-size:15px;
-    color:#F3EADA;
-    letter-spacing:0.08em;
-  }
-  .door-lock input::placeholder{color:rgba(243,234,218,0.3);}
-  .door-lock input:focus{
-    outline:none;
-    border-color:var(--gold);
-    box-shadow:0 0 20px rgba(217,178,92,0.12);
-  }
-  .door-lock button{
-    border:none;
-    background:linear-gradient(135deg, var(--gold), #C49A3A);
-    color:#1A0E14;
-    padding:0 22px;
-    border-radius:14px;
-    font-family:'Fredoka', sans-serif;
-    font-weight:600;
-    font-size:14px;
-    cursor:pointer;
-    transition:transform 0.15s;
-  }
-  .door-lock button:hover{transform:scale(1.04);}
-  .door-error{
-    font-size:12.5px;
-    color:#E8899F;
-    min-height:18px;
-    margin-bottom:8px;
-    opacity:0;
-    transition:opacity 0.3s;
-  }
-  .door-error.show{opacity:1;}
+    section:nth-child(3) {
+      animation-delay: 0.2s;
+    }
 
-  /* Contenu de la porte secrète */
-  .confession-room{
-    text-align:left;
-  }
-  .confession-content{display:none; animation:confessionReveal 1.2s ease;}
-  .confession-room.show-aveux .confession-content{display:block;}
-  .confession-room.show-aveux .door-block-msg,
-  .confession-room.show-aveux .door-wait-msg,
-  .confession-room.show-aveux .lock-form{display:none !important;}
-  @keyframes confessionReveal{
-    from{opacity:0; transform:translateY(16px);}
-    to{opacity:1; transform:translateY(0);}
-  }
+    section:nth-child(4) {
+      animation-delay: 0.3s;
+    }
 
-  .confession-header{
-    text-align:center;
-    margin-bottom:28px;
-    padding-bottom:20px;
-    border-bottom:1px solid rgba(217,178,92,0.2);
-  }
-  .confession-header h3{
-    font-family:'Cormorant Garamond', serif;
-    font-size:32px;
-    color:#F3EADA;
-    margin:0 0 6px;
-    font-weight:500;
-  }
-  .confession-header p{
-    font-size:14px;
-    color:rgba(243,234,218,0.6);
-    margin:0;
-    font-style:italic;
-  }
+    section:nth-child(5) {
+      animation-delay: 0.4s;
+    }
 
-  .confession-letter{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(217,178,92,0.15);
-    border-radius:18px;
-    padding:28px 26px;
-    margin-bottom:20px;
-    position:relative;
-  }
-  .confession-letter::before{
-    content:'💌';
-    position:absolute;
-    top:-14px;
-    right:20px;
-    font-size:24px;
-  }
-  .confession-letter p{
-    font-family:'Cormorant Garamond', serif;
-    font-size:19px;
-    line-height:1.75;
-    color:rgba(243,234,218,0.92);
-    margin:0 0 16px;
-  }
-  .confession-letter p:last-child{margin-bottom:0;}
-  .confession-letter .signature{
-    text-align:right;
-    font-style:italic;
-    color:var(--gold);
-    font-size:20px;
-    margin-top:20px;
-  }
+    section:nth-child(6) {
+      animation-delay: 0.5s;
+    }
 
-  .reasons-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-bottom:20px;
-  }
-  .reason{
-    background:rgba(246,184,198,0.08);
-    border:1px solid rgba(232,137,159,0.2);
-    border-radius:14px;
-    padding:14px;
-    font-size:13px;
-    color:rgba(243,234,218,0.85);
-    line-height:1.45;
-    text-align:center;
-  }
-  .reason .emoji{
-    display:block;
-    font-size:22px;
-    margin-bottom:6px;
-  }
+    h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--ink);
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-  .promise-box{
-    background:linear-gradient(135deg, rgba(169,217,188,0.1), rgba(203,185,232,0.1));
-    border-radius:16px;
-    padding:20px;
-    text-align:center;
-    margin-bottom:16px;
-  }
-  .promise-box p{
-    font-family:'Fredoka', sans-serif;
-    font-size:16px;
-    color:#F3EADA;
-    margin:0;
-    line-height:1.5;
-  }
+    .add-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
 
-  .door-close{
-    position:fixed;
-    top:20px;
-    right:20px;
-    background:rgba(255,255,255,0.1);
-    border:1.5px solid rgba(217,178,92,0.3);
-    color:var(--gold);
-    width:40px; height:40px;
-    border-radius:50%;
-    font-size:18px;
-    cursor:pointer;
-    z-index:1002;
-    transition:background 0.2s;
-  }
-  .door-close:hover{background:rgba(217,178,92,0.15);}
+    .add-row input {
+      flex: 1;
+      border: 2px solid var(--pink);
+      background: #fff;
+      border-radius: 16px;
+      padding: 11px 16px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--ink);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
 
-  /* Confettis quand la porte s'ouvre */
-  .confetti{
-    position:fixed;
-    width:8px;
-    height:8px;
-    border-radius:2px;
-    pointer-events:none;
-    z-index:1003;
-    animation:confettiFall 3s ease-out forwards;
-  }
-  @keyframes confettiFall{
-    0%{transform:translateY(0) rotate(0deg); opacity:1;}
-    100%{transform:translateY(100vh) rotate(720deg); opacity:0;}
-  }
+    .add-row input:focus {
+      outline: none;
+      border-color: var(--pink-deep);
+      box-shadow: 0 0 0 4px var(--pink-glow);
+    }
 
-  /* ── Écran d'accueil magique ── */
-  .welcome-overlay{
-    position:fixed;
-    inset:0;
-    background:radial-gradient(circle at 50% 40%, rgba(255,248,239,0.98), rgba(246,184,198,0.95));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:2000;
-    transition:opacity 0.9s ease, visibility 0.9s;
-  }
-  .welcome-overlay.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-  }
-  .welcome-box{text-align:center; padding:20px; animation:welcomeIn 1s ease;}
-  @keyframes welcomeIn{
-    from{opacity:0; transform:scale(0.9) translateY(20px);}
-    to{opacity:1; transform:scale(1) translateY(0);}
-  }
-  .welcome-flower{font-size:64px; animation:sway 2s ease-in-out infinite; display:block; margin-bottom:16px;}
-  .welcome-box h2{
-    font-family:'Cormorant Garamond', serif;
-    font-size:clamp(28px,6vw,36px);
-    color:var(--pink-deep);
-    margin:0 0 10px;
-    font-weight:500;
-  }
-  .welcome-box p{font-size:15px; color:var(--ink-soft); margin:0 0 24px; line-height:1.55;}
-  .welcome-box button{
-    border:none;
-    background:linear-gradient(135deg, var(--pink-deep), #D76C85);
-    color:#fff;
-    padding:12px 28px;
-    border-radius:20px;
-    font-family:'Fredoka', sans-serif;
-    font-size:15px;
-    cursor:pointer;
-    box-shadow:0 6px 0 #C45A72;
-    transition:transform 0.15s;
-  }
-  .welcome-box button:hover{transform:translateY(-2px);}
+    .add-row button {
+      border: none;
+      background: linear-gradient(135deg, var(--pink-deep), #D76C85);
+      color: #fff;
+      padding: 0 20px;
+      border-radius: 16px;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 0 #C45A72;
+    }
 
-  /* ── Carte à gratter ── */
-  .scratch-card{
-    background:linear-gradient(135deg, #FFF5E6 0%, #FFE8D6 100%);
-    border-radius:22px;
-    padding:24px;
-    text-align:center;
-  }
-  .scratch-card p.intro{
-    margin:0 0 16px;
-    font-size:14px;
-    color:#7A5A40;
-    line-height:1.5;
-  }
-  .scratch-wrap{
-    position:relative;
-    width:100%;
-    max-width:320px;
-    height:100px;
-    margin:0 auto 12px;
-    border-radius:16px;
-    overflow:hidden;
-    cursor:crosshair;
-    box-shadow:inset 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .scratch-prize{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-    background:linear-gradient(135deg, #fff 0%, #FFF8FB 100%);
-    font-family:'Cormorant Garamond', serif;
-    font-size:18px;
-    color:var(--pink-deep);
-    font-style:italic;
-    line-height:1.4;
-  }
-  .scratch-canvas{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    touch-action:none;
-  }
-  .scratch-hint{font-size:12px; color:var(--ink-soft); font-style:italic;}
+    .add-row button:hover {
+      transform: translateY(-2px);
+    }
 
-  /* ── Horoscope du cœur ── */
-  .horoscope-card{
-    background:linear-gradient(135deg, #1A1228 0%, #2D1F3D 100%);
-    border-radius:22px;
-    padding:26px 24px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .horoscope-card::before{
-    content:'✦';
-    position:absolute;
-    top:10px; left:14px;
-    color:rgba(255,255,255,0.15);
-    font-size:20px;
-  }
-  .horoscope-card::after{
-    content:'✦';
-    position:absolute;
-    bottom:10px; right:14px;
-    color:rgba(255,255,255,0.15);
-    font-size:20px;
-  }
-  .horoscope-label{
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.15em;
-    color:rgba(246,184,198,0.7);
-    margin-bottom:8px;
-  }
-  .horoscope-text{
-    font-family:'Cormorant Garamond', serif;
-    font-size:20px;
-    color:#F3EADA;
-    line-height:1.55;
-    margin:0;
-    font-style:italic;
-  }
-  .horoscope-date{
-    margin-top:12px;
-    font-size:11px;
-    color:rgba(243,234,218,0.4);
-  }
+    .add-row button:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
 
-  /* ── Calendrier des visites ── */
-  .visit-calendar{
-    display:flex;
-    gap:6px;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top:4px;
-  }
-  .visit-dot{
-    width:28px; height:28px;
-    border-radius:8px;
-    background:#fff;
-    border:2px solid var(--mint);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:11px;
-    color:var(--ink-soft);
-    transition:transform 0.2s, background 0.2s;
-  }
-  .visit-dot.visited{
-    background:linear-gradient(135deg, var(--mint), var(--mint-deep));
-    border-color:var(--mint-deep);
-    color:#fff;
-    transform:scale(1.05);
-  }
-  .visit-dot.today{
-    border-color:var(--pink-deep);
-    box-shadow:0 0 0 3px var(--pink-glow);
-  }
-  .visit-streak{
-    text-align:center;
-    font-size:13px;
-    color:var(--mint-deep);
-    font-weight:700;
-    margin-top:10px;
-  }
+    .garden {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 14px;
+    }
 
-  /* ── Bouquet récompense ── */
-  .bouquet-reward{
-    display:none;
-    background:linear-gradient(135deg, #FFF9E6 0%, #FFE4B5 50%, #FFD6E8 100%);
-    border-radius:22px;
-    padding:28px 24px;
-    text-align:center;
-    animation:bouquetPop 0.8s cubic-bezier(0.34,1.56,0.64,1);
-    border:2px solid var(--gold);
-  }
-  .bouquet-reward.show{display:block;}
-  @keyframes bouquetPop{
-    from{opacity:0; transform:scale(0.85);}
-    to{opacity:1; transform:scale(1);}
-  }
-  .bouquet-reward .bouquet-emoji{font-size:48px; display:block; margin-bottom:12px; animation:bloomPulse 2s ease-in-out infinite;}
-  .bouquet-reward h3{
-    font-family:'Fredoka', sans-serif;
-    font-size:20px;
-    color:#8B6914;
-    margin:0 0 8px;
-  }
-  .bouquet-reward p{font-size:14.5px; color:#6B5344; line-height:1.55; margin:0;}
+    .pot {
+      background: #fff;
+      border-radius: 20px;
+      padding: 16px 10px 14px;
+      text-align: center;
+      box-shadow: 0 6px 0 rgba(232, 137, 159, 0.15);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* ── Cœurs flottants (clic mascotte) ── */
-  .floating-heart{
-    position:fixed;
-    font-size:20px;
-    pointer-events:none;
-    z-index:500;
-    animation:heartFloat 1.2s ease-out forwards;
-  }
-  @keyframes heartFloat{
-    0%{opacity:1; transform:translateY(0) scale(1);}
-    100%{opacity:0; transform:translateY(-80px) scale(1.4);}
-  }
-  .mascot{cursor:pointer;}
-  .mascot-tooltip{
-    position:absolute;
-    background:#fff;
-    border:2px solid var(--pink);
-    border-radius:14px;
-    padding:8px 14px;
-    font-size:13px;
-    color:var(--pink-deep);
-    white-space:nowrap;
-    opacity:0;
-    transform:translateY(8px);
-    transition:opacity 0.3s, transform 0.3s;
-    pointer-events:none;
-    box-shadow:0 4px 12px rgba(232,137,159,0.2);
-    z-index:10;
-  }
-  .mascot-wrap{position:relative; display:inline-block;}
-  .mascot-wrap.show-tip .mascot-tooltip{opacity:1; transform:translateY(-8px);}
+    .pot::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(246, 184, 198, 0.15), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
 
-  /* ── Mode nuit ── */
-  body.night{
-    background:#1E1520;
-    background-image:
-      radial-gradient(circle at 12% 18%, rgba(246,184,198,0.12) 0, transparent 40%),
-      radial-gradient(circle at 88% 8%, rgba(169,217,188,0.08) 0, transparent 40%),
-      radial-gradient(circle at 50% 90%, rgba(203,185,232,0.1) 0, transparent 50%);
-    color:#F3EADA;
-  }
-  body.night h1{background:linear-gradient(135deg, #F6B8C6, #E8899F); -webkit-background-clip:text; background-clip:text;}
-  body.night h2{color:#F3EADA;}
-  body.night .sub, body.night .empty-note{color:rgba(243,234,218,0.6);}
-  body.night .pot, body.night .stat, body.night .heart-msg, body.night .note-card{background:rgba(255,255,255,0.06); color:#F3EADA;}
-  body.night .pot .name, body.night .stat .label{color:rgba(243,234,218,0.55);}
-  body.night .greeting{background:rgba(255,255,255,0.08); border-color:rgba(246,184,198,0.4);}
-  body.night .petal{opacity:0.2;}
+    .pot:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 0 rgba(232, 137, 159, 0.12);
+    }
 
-  /* ── Compteur d'amour discret ── */
-  .love-counter{
-    text-align:center;
-    margin-top:8px;
-    font-size:12px;
-    color:var(--ink-soft);
-    opacity:0.7;
-  }
-  .love-counter span{color:var(--pink-deep); font-weight:700;}
+    .pot:hover::before {
+      opacity: 1;
+    }
 
-  /* ── Guide des étapes ── */
-  .steps-guide{
-    background:linear-gradient(135deg, #fff 0%, #FFF5F8 100%);
-    border:2px solid var(--pink);
-    border-radius:22px;
-    padding:24px 22px;
-    margin-bottom:38px;
-    box-shadow:0 6px 0 rgba(232,137,159,0.12);
-  }
-  .steps-guide h2{
-    margin:0 0 6px;
-    font-size:20px;
-  }
-  .steps-guide .steps-intro{
-    font-size:14px;
-    color:var(--ink-soft);
-    margin:0 0 18px;
-    line-height:1.55;
-  }
-  .step-list{list-style:none; padding:0; margin:0; counter-reset:step;}
-  .step-item{
-    display:flex;
-    gap:14px;
-    align-items:flex-start;
-    padding:12px 0;
-    border-bottom:1px dashed rgba(232,137,159,0.25);
-    counter-increment:step;
-  }
-  .step-item:last-child{border-bottom:none; padding-bottom:0;}
-  .step-num{
-    flex-shrink:0;
-    width:28px; height:28px;
-    background:linear-gradient(135deg, var(--pink-deep), #D76C85);
-    color:#fff;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Fredoka', sans-serif;
-    font-size:13px;
-    font-weight:600;
-  }
-  .step-item.done .step-num{background:var(--mint-deep);}
-  .step-body{font-size:14px; line-height:1.5; color:var(--ink);}
-  .step-body strong{display:block; margin-bottom:2px; color:var(--ink);}
-  .step-body span{color:var(--ink-soft); font-size:13px;}
+    .pot .plant {
+      font-size: 34px;
+      display: block;
+      margin-bottom: 8px;
+      transition: transform 0.25s ease;
+    }
 
-  /* ── Questionnaire ── */
-  .quiz-card{
-    background:#fff;
-    border-radius:22px;
-    padding:24px 22px;
-    box-shadow:0 6px 0 rgba(203,185,232,0.2);
-  }
-  .quiz-card .quiz-intro{
-    font-size:14px;
-    color:var(--ink-soft);
-    line-height:1.55;
-    margin:0 0 20px;
-  }
-  .quiz-q{margin-bottom:22px;}
-  .quiz-q label{
-    display:block;
-    font-size:14.5px;
-    font-weight:600;
-    color:var(--ink);
-    margin-bottom:8px;
-    line-height:1.45;
-  }
-  .quiz-q textarea, .quiz-q select{
-    width:100%;
-    border:2px solid var(--lavender);
-    border-radius:14px;
-    padding:11px 14px;
-    font-family:inherit;
-    font-size:14px;
-    color:var(--ink);
-    background:#fff;
-  }
-  .quiz-q textarea{min-height:72px; resize:vertical;}
-  .quiz-q textarea:focus, .quiz-q select:focus{
-    outline:none;
-    border-color:var(--pink-deep);
-  }
-  .scale-btns{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-  }
-  .scale-btns input{display:none;}
-  .scale-btns label{
-    flex:1;
-    min-width:44px;
-    text-align:center;
-    padding:10px 8px;
-    border:2px solid var(--lavender);
-    border-radius:12px;
-    font-weight:600;
-    font-size:15px;
-    cursor:pointer;
-    transition:all 0.15s;
-    margin:0;
-  }
-  .scale-btns input:checked + label{
-    background:var(--lavender);
-    border-color:#9B7EC8;
-    color:#3E2F52;
-  }
-  .quiz-submit{
-    width:100%;
-    border:none;
-    background:linear-gradient(135deg, var(--pink-deep), #D76C85);
-    color:#fff;
-    padding:14px;
-    border-radius:16px;
-    font-family:'Fredoka', sans-serif;
-    font-size:15px;
-    cursor:pointer;
-    margin-top:8px;
-  }
-  .quiz-submit:disabled{opacity:0.5; cursor:not-allowed;}
-  .quiz-done{
-    display:none;
-    text-align:center;
-    padding:20px;
-    background:linear-gradient(135deg, #E8F5EC, #D4EDDA);
-    border-radius:16px;
-    margin-top:16px;
-  }
-  .quiz-done.show{display:block;}
-  .quiz-done p{margin:0; font-size:14.5px; color:#3A5A42; line-height:1.55;}
+    .pot.watered .plant {
+      transform: scale(1.15);
+    }
 
-  /* ── Statut d'accès (visible seulement si autorisée) ── */
-  .access-card{
-    display:none;
-    background:linear-gradient(135deg, #FFF9E6 0%, #FFE4EC 100%);
-    border:2px solid var(--gold);
-    border-radius:22px;
-    padding:22px 24px;
-    text-align:center;
-    margin-bottom:38px;
-    animation:fadeInUp 0.8s ease;
-  }
-  .access-card.show{display:block;}
-  .access-card h3{
-    font-family:'Fredoka', sans-serif;
-    font-size:18px;
-    color:#8B6914;
-    margin:0 0 10px;
-  }
-  .access-card p{font-size:14px; color:#6B5344; line-height:1.55; margin:0 0 8px;}
-  .access-card .code-hint{
-    display:inline-block;
-    margin-top:10px;
-    background:#fff;
-    border:2px dashed var(--gold);
-    border-radius:12px;
-    padding:10px 18px;
-    font-family:'Fredoka', sans-serif;
-    font-size:16px;
-    color:var(--pink-deep);
-    letter-spacing:0.05em;
-  }
+    .pot .name {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.3;
+      word-break: break-word;
+    }
 
-  /* ── Messages porte secrète ── */
-  .door-wait-msg, .door-block-msg{
-    display:none;
-    text-align:center;
-    padding:20px 10px;
-  }
-  .door-wait-msg.show, .door-block-msg.show{display:block;}
-  .door-wait-msg p, .door-block-msg p{
-    font-family:'Cormorant Garamond', serif;
-    font-size:18px;
-    color:rgba(243,234,218,0.85);
-    line-height:1.6;
-    margin:0 0 12px;
-  }
-  .door-wait-msg .icon, .door-block-msg .icon{font-size:40px; display:block; margin-bottom:12px;}
+    .pot .stage-label {
+      font-size: 10.5px;
+      color: var(--mint-deep);
+      font-weight: 700;
+      margin-top: 4px;
+      text-transform: lowercase;
+    }
 
-  /* ── Panneau admin (caché) ── */
-  .admin-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(20,12,18,0.96);
-    z-index:3000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity 0.4s;
-    padding:16px;
-  }
-  .admin-overlay.active{opacity:1; pointer-events:auto;}
-  .admin-panel{
-    width:100%;
-    max-width:520px;
-    max-height:90vh;
-    overflow-y:auto;
-    background:#1A1220;
-    border:2px solid #4A3B50;
-    border-radius:20px;
-    padding:28px 24px;
-  }
-  .admin-panel h2{
-    font-family:'Fredoka', sans-serif;
-    color:var(--pink);
-    margin:0 0 4px;
-    font-size:20px;
-  }
-  .admin-panel .admin-sub{
-    font-size:12px;
-    color:rgba(243,234,218,0.45);
-    margin:0 0 20px;
-  }
-  .admin-lock input{
-    width:100%;
-    background:rgba(255,255,255,0.06);
-    border:1.5px solid rgba(246,184,198,0.3);
-    border-radius:12px;
-    padding:11px 14px;
-    color:#F3EADA;
-    font-family:inherit;
-    font-size:14px;
-    margin-bottom:10px;
-  }
-  .admin-lock button{
-    width:100%;
-    border:none;
-    background:var(--pink-deep);
-    color:#fff;
-    padding:11px;
-    border-radius:12px;
-    font-family:'Fredoka', sans-serif;
-    cursor:pointer;
-  }
-  .admin-content{display:none;}
-  .admin-content.show{display:block;}
-  .admin-status{
-    background:rgba(169,217,188,0.1);
-    border:1px solid rgba(111,184,148,0.3);
-    border-radius:12px;
-    padding:12px 14px;
-    margin-bottom:16px;
-    font-size:13px;
-    color:#A9D9BC;
-    line-height:1.5;
-  }
-  .admin-status.pending{border-color:rgba(246,196,83,0.4); background:rgba(246,196,83,0.08); color:#F6C453;}
-  .admin-answer{
-    background:rgba(255,255,255,0.04);
-    border-radius:12px;
-    padding:14px;
-    margin-bottom:10px;
-  }
-  .admin-answer .q{
-    font-size:12px;
-    color:rgba(246,184,198,0.7);
-    margin-bottom:4px;
-    font-weight:600;
-  }
-  .admin-answer .a{
-    font-size:14px;
-    color:#F3EADA;
-    line-height:1.45;
-  }
-  .admin-actions{display:flex; flex-direction:column; gap:8px; margin-top:18px;}
-  .admin-actions button{
-    border:none;
-    padding:12px;
-    border-radius:12px;
-    font-family:'Fredoka', sans-serif;
-    font-size:14px;
-    cursor:pointer;
-  }
-  .btn-authorize{background:var(--mint-deep); color:#fff;}
-  .btn-revoke{background:rgba(232,137,159,0.2); color:var(--pink);}
-  .btn-close-admin{background:rgba(255,255,255,0.08); color:rgba(243,234,218,0.6);}
-  .admin-note{
-    font-size:11px;
-    color:rgba(243,234,218,0.35);
-    margin-top:14px;
-    line-height:1.5;
-    font-style:italic;
-  }
-  .admin-close-x{
-    position:absolute;
-    top:16px; right:16px;
-    background:none;
-    border:none;
-    color:rgba(243,234,218,0.5);
-    font-size:20px;
-    cursor:pointer;
-  }
-  .admin-panel-wrap{position:relative; width:100%; max-width:520px;}
+    .pot.bloomed {
+      background: linear-gradient(180deg, #FFF3E0 0%, #FFFAF0 100%);
+      box-shadow: 0 6px 0 rgba(246, 196, 83, 0.25);
+    }
 
-  body.night .steps-guide{background:rgba(255,255,255,0.06); border-color:rgba(246,184,198,0.3);}
-  body.night .quiz-card{background:rgba(255,255,255,0.06);}
+    .pot.bloomed .plant {
+      animation: bloomPulse 2s ease-in-out infinite;
+    }
 
-  @media(max-width:480px){
-    .reasons-grid{grid-template-columns:1fr;}
-    .door-frame{padding:32px 20px 28px;}
-    .confession-letter p{font-size:17px;}
-  }
-</style>
+    @keyframes bloomPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    .empty-note {
+      color: var(--ink-soft);
+      font-size: 14px;
+      font-style: italic;
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Compteur de fleurs */
+    .stats-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      flex: 1;
+      min-width: 100px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 16px;
+      text-align: center;
+      box-shadow: 0 4px 0 rgba(169, 217, 188, 0.15);
+    }
+
+    .stat .num {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 22px;
+      color: var(--mint-deep);
+      display: block;
+    }
+
+    .stat .label {
+      font-size: 11px;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Messages du cœur */
+    .heart-messages {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .heart-msg {
+      background: linear-gradient(135deg, #fff 0%, #FFF8FB 100%);
+      border-left: 4px solid var(--pink);
+      border-radius: 0 16px 16px 0;
+      padding: 14px 18px;
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: var(--ink);
+      transition: transform 0.2s;
+    }
+
+    .heart-msg:hover {
+      transform: translateX(4px);
+    }
+
+    .heart-msg .from {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--pink-deep);
+      font-style: italic;
+    }
+
+    .surprise-card {
+      background: linear-gradient(135deg, var(--lavender) 0%, #D4C4ED 100%);
+      border-radius: 22px;
+      padding: 26px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .surprise-card::after {
+      content: '✨';
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 20px;
+      opacity: 0.5;
+      animation: twinkle 2s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+      }
+    }
+
+    .surprise-text {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.45;
+      margin: 0 0 16px;
+      color: #3E2F52;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .surprise-card button {
+      border: none;
+      background: #fff;
+      color: #5B4482;
+      padding: 10px 22px;
+      border-radius: 16px;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      font-size: 14.5px;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .surprise-card button:hover {
+      background: #F3EEFB;
+      transform: scale(1.03);
+    }
+
+    /* Capsule du temps */
+    .capsule-card {
+      background: linear-gradient(135deg, #E8F5EC 0%, #D4EDDA 100%);
+      border-radius: 22px;
+      padding: 22px 24px;
+      text-align: center;
+    }
+
+    .capsule-card p {
+      margin: 0 0 14px;
+      font-size: 14.5px;
+      color: #3A5A42;
+      line-height: 1.5;
+    }
+
+    .capsule-card textarea {
+      width: 100%;
+      border: 2px solid var(--mint);
+      border-radius: 16px;
+      padding: 12px 16px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--ink);
+      resize: vertical;
+      min-height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .capsule-card textarea:focus {
+      outline: none;
+      border-color: var(--mint-deep);
+    }
+
+    .capsule-card button {
+      border: none;
+      background: var(--mint-deep);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 16px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .capsule-card button:hover {
+      background: #5DA882;
+    }
+
+    .capsule-saved {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--mint-deep);
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .capsule-saved.show {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-top: 56px;
+      line-height: 1.8;
+    }
+
+    footer .hint-secret {
+      opacity: 0.45;
+      font-size: 11px;
+      cursor: default;
+      user-select: none;
+    }
+
+    .note-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 22px 22px 20px;
+      box-shadow: 0 6px 0 rgba(169, 217, 188, 0.2);
+    }
+
+    .note-card p.hint {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      margin: 0 0 12px;
+    }
+
+    .note-card input {
+      width: 100%;
+      border: 2px solid var(--mint);
+      border-radius: 16px;
+      padding: 11px 16px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--ink);
+      transition: border-color 0.2s;
+    }
+
+    .note-card input:focus {
+      outline: none;
+      border-color: var(--mint-deep);
+    }
+
+    /* Médaillon secret */
+    .flower-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 45%, rgba(46, 42, 38, 0.72) 0%, rgba(46, 42, 38, 0.88) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 999;
+    }
+
+    .flower-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .medallion {
+      position: relative;
+      width: 260px;
+      height: 260px;
+    }
+
+    .medallion svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .medallion path,
+    .medallion circle {
+      fill: none;
+      stroke: #D9B25C;
+      stroke-width: 1.1;
+      stroke-linecap: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      opacity: 0;
+      animation: drawLine 7s ease-in-out infinite;
+    }
+
+    .medallion .frame {
+      stroke-width: 0.8;
+      opacity: 0;
+      animation: drawFrame 7s ease-in-out infinite;
+    }
+
+    @keyframes drawLine {
+      0% {
+        stroke-dashoffset: 1;
+        opacity: 0;
+      }
+
+      8% {
+        opacity: 0.9;
+      }
+
+      42% {
+        stroke-dashoffset: 0;
+        opacity: 0.9;
+      }
+
+      68% {
+        stroke-dashoffset: 0;
+        opacity: 0.9;
+      }
+
+      88% {
+        opacity: 0;
+      }
+
+      100% {
+        stroke-dashoffset: 1;
+        opacity: 0;
+      }
+    }
+
+    @keyframes drawFrame {
+      0% {
+        stroke-dashoffset: 1;
+        opacity: 0;
+      }
+
+      6% {
+        opacity: 0.5;
+      }
+
+      40% {
+        stroke-dashoffset: 0;
+        opacity: 0.5;
+      }
+
+      72% {
+        stroke-dashoffset: 0;
+        opacity: 0.5;
+      }
+
+      90% {
+        opacity: 0;
+      }
+
+      100% {
+        stroke-dashoffset: 1;
+        opacity: 0;
+      }
+    }
+
+    .medallion.theme-hani path,
+    .medallion.theme-hani circle {
+      stroke: #D9B25C;
+    }
+
+    .medallion.theme-mounira path,
+    .medallion.theme-mounira circle {
+      stroke: #B98A99;
+    }
+
+    .medallion.theme-both path,
+    .medallion.theme-both circle {
+      stroke: #D9B25C;
+    }
+
+    .flower-message {
+      position: absolute;
+      left: 50%;
+      bottom: -40px;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: 0.03em;
+      color: #F3EADA;
+      animation: msgFade 7s ease-in-out infinite;
+    }
+
+    @keyframes msgFade {
+
+      0%,
+      38% {
+        opacity: 0;
+      }
+
+      48%,
+      68% {
+        opacity: 1;
+      }
+
+      82%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .flower-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #F3EADA;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* ═══ PORTE SECRÈTE — AVEUX ═══ */
+    .secret-door-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(30, 15, 25, 0.95) 0%, rgba(15, 8, 12, 0.98) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .secret-door-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .secret-door {
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      transform: scale(0.92) translateY(20px);
+      transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .secret-door-overlay.active .secret-door {
+      transform: scale(1) translateY(0);
+    }
+
+    .door-frame {
+      background: linear-gradient(180deg, #2A1820 0%, #1A0E14 100%);
+      border: 3px solid var(--gold);
+      border-radius: 24px 24px 8px 8px;
+      padding: 40px 32px 36px;
+      position: relative;
+      box-shadow:
+        0 0 60px rgba(217, 178, 92, 0.15),
+        inset 0 1px 0 rgba(217, 178, 92, 0.2);
+    }
+
+    .door-frame::before {
+      content: '🚪';
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 36px;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+    }
+
+    .door-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--gold);
+      margin: 0 0 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .door-sub {
+      font-size: 13px;
+      color: rgba(243, 234, 218, 0.55);
+      margin: 0 0 28px;
+      font-style: italic;
+    }
+
+    .door-lock {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .door-lock input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1.5px solid rgba(217, 178, 92, 0.35);
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-family: inherit;
+      font-size: 15px;
+      color: #F3EADA;
+      letter-spacing: 0.08em;
+    }
+
+    .door-lock input::placeholder {
+      color: rgba(243, 234, 218, 0.3);
+    }
+
+    .door-lock input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 20px rgba(217, 178, 92, 0.12);
+    }
+
+    .door-lock button {
+      border: none;
+      background: linear-gradient(135deg, var(--gold), #C49A3A);
+      color: #1A0E14;
+      padding: 0 22px;
+      border-radius: 14px;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    .door-lock button:hover {
+      transform: scale(1.04);
+    }
+
+    .door-error {
+      font-size: 12.5px;
+      color: #E8899F;
+      min-height: 18px;
+      margin-bottom: 8px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .door-error.show {
+      opacity: 1;
+    }
+
+    /* Contenu de la porte secrète */
+    .confession-room {
+      text-align: left;
+    }
+
+    .confession-content {
+      display: none;
+      animation: confessionReveal 1.2s ease;
+    }
+
+    .confession-room.show-aveux .confession-content {
+      display: block;
+    }
+
+    .confession-room.show-aveux .door-block-msg,
+    .confession-room.show-aveux .door-wait-msg,
+    .confession-room.show-aveux .lock-form {
+      display: none !important;
+    }
+
+    @keyframes confessionReveal {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .confession-header {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(217, 178, 92, 0.2);
+    }
+
+    .confession-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: #F3EADA;
+      margin: 0 0 6px;
+      font-weight: 500;
+    }
+
+    .confession-header p {
+      font-size: 14px;
+      color: rgba(243, 234, 218, 0.6);
+      margin: 0;
+      font-style: italic;
+    }
+
+    .confession-letter {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(217, 178, 92, 0.15);
+      border-radius: 18px;
+      padding: 28px 26px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .confession-letter::before {
+      content: '💌';
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      font-size: 24px;
+    }
+
+    .confession-letter p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      line-height: 1.75;
+      color: rgba(243, 234, 218, 0.92);
+      margin: 0 0 16px;
+    }
+
+    .confession-letter p:last-child {
+      margin-bottom: 0;
+    }
+
+    .confession-letter .signature {
+      text-align: right;
+      font-style: italic;
+      color: var(--gold);
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .reason {
+      background: rgba(246, 184, 198, 0.08);
+      border: 1px solid rgba(232, 137, 159, 0.2);
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 13px;
+      color: rgba(243, 234, 218, 0.85);
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .reason .emoji {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .promise-box {
+      background: linear-gradient(135deg, rgba(169, 217, 188, 0.1), rgba(203, 185, 232, 0.1));
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .promise-box p {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 16px;
+      color: #F3EADA;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .door-close {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1.5px solid rgba(217, 178, 92, 0.3);
+      color: var(--gold);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 1002;
+      transition: background 0.2s;
+    }
+
+    .door-close:hover {
+      background: rgba(217, 178, 92, 0.15);
+    }
+
+    /* Confettis quand la porte s'ouvre */
+    .confetti {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: 1003;
+      animation: confettiFall 3s ease-out forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* ── Écran d'accueil magique ── */
+    .welcome-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(255, 248, 239, 0.98), rgba(246, 184, 198, 0.95));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      transition: opacity 0.9s ease, visibility 0.9s;
+    }
+
+    .welcome-overlay.hide {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    .welcome-box {
+      text-align: center;
+      padding: 20px;
+      animation: welcomeIn 1s ease;
+    }
+
+    @keyframes welcomeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .welcome-flower {
+      font-size: 64px;
+      animation: sway 2s ease-in-out infinite;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .welcome-box h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 6vw, 36px);
+      color: var(--pink-deep);
+      margin: 0 0 10px;
+      font-weight: 500;
+    }
+
+    .welcome-box p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      margin: 0 0 24px;
+      line-height: 1.55;
+    }
+
+    .welcome-box button {
+      border: none;
+      background: linear-gradient(135deg, var(--pink-deep), #D76C85);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 20px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #C45A72;
+      transition: transform 0.15s;
+    }
+
+    .welcome-box button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ── Carte à gratter ── */
+    .scratch-card {
+      background: linear-gradient(135deg, #FFF5E6 0%, #FFE8D6 100%);
+      border-radius: 22px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .scratch-card p.intro {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: #7A5A40;
+      line-height: 1.5;
+    }
+
+    .scratch-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      height: 100px;
+      margin: 0 auto 12px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: crosshair;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .scratch-prize {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: linear-gradient(135deg, #fff 0%, #FFF8FB 100%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--pink-deep);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .scratch-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+
+    .scratch-hint {
+      font-size: 12px;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    /* ── Horoscope du cœur ── */
+    .horoscope-card {
+      background: linear-gradient(135deg, #1A1228 0%, #2D1F3D 100%);
+      border-radius: 22px;
+      padding: 26px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .horoscope-card::before {
+      content: '✦';
+      position: absolute;
+      top: 10px;
+      left: 14px;
+      color: rgba(255, 255, 255, 0.15);
+      font-size: 20px;
+    }
+
+    .horoscope-card::after {
+      content: '✦';
+      position: absolute;
+      bottom: 10px;
+      right: 14px;
+      color: rgba(255, 255, 255, 0.15);
+      font-size: 20px;
+    }
+
+    .horoscope-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(246, 184, 198, 0.7);
+      margin-bottom: 8px;
+    }
+
+    .horoscope-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: #F3EADA;
+      line-height: 1.55;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .horoscope-date {
+      margin-top: 12px;
+      font-size: 11px;
+      color: rgba(243, 234, 218, 0.4);
+    }
+
+    /* ── Calendrier des visites ── */
+    .visit-calendar {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .visit-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #fff;
+      border: 2px solid var(--mint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--ink-soft);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .visit-dot.visited {
+      background: linear-gradient(135deg, var(--mint), var(--mint-deep));
+      border-color: var(--mint-deep);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .visit-dot.today {
+      border-color: var(--pink-deep);
+      box-shadow: 0 0 0 3px var(--pink-glow);
+    }
+
+    .visit-streak {
+      text-align: center;
+      font-size: 13px;
+      color: var(--mint-deep);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* ── Bouquet récompense ── */
+    .bouquet-reward {
+      display: none;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFE4B5 50%, #FFD6E8 100%);
+      border-radius: 22px;
+      padding: 28px 24px;
+      text-align: center;
+      animation: bouquetPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid var(--gold);
+    }
+
+    .bouquet-reward.show {
+      display: block;
+    }
+
+    @keyframes bouquetPop {
+      from {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .bouquet-reward .bouquet-emoji {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 12px;
+      animation: bloomPulse 2s ease-in-out infinite;
+    }
+
+    .bouquet-reward h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 20px;
+      color: #8B6914;
+      margin: 0 0 8px;
+    }
+
+    .bouquet-reward p {
+      font-size: 14.5px;
+      color: #6B5344;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ── Cœurs flottants (clic mascotte) ── */
+    .floating-heart {
+      position: fixed;
+      font-size: 20px;
+      pointer-events: none;
+      z-index: 500;
+      animation: heartFloat 1.2s ease-out forwards;
+    }
+
+    @keyframes heartFloat {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-80px) scale(1.4);
+      }
+    }
+
+    .mascot {
+      cursor: pointer;
+    }
+
+    .mascot-tooltip {
+      position: absolute;
+      background: #fff;
+      border: 2px solid var(--pink);
+      border-radius: 14px;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--pink-deep);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(232, 137, 159, 0.2);
+      z-index: 10;
+    }
+
+    .mascot-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .mascot-wrap.show-tip .mascot-tooltip {
+      opacity: 1;
+      transform: translateY(-8px);
+    }
+
+    /* ── Mode nuit ── */
+    body.night {
+      background: #1E1520;
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(246, 184, 198, 0.12) 0, transparent 40%),
+        radial-gradient(circle at 88% 8%, rgba(169, 217, 188, 0.08) 0, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(203, 185, 232, 0.1) 0, transparent 50%);
+      color: #F3EADA;
+    }
+
+    body.night h1 {
+      background: linear-gradient(135deg, #F6B8C6, #E8899F);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    body.night h2 {
+      color: #F3EADA;
+    }
+
+    body.night .sub,
+    body.night .empty-note {
+      color: rgba(243, 234, 218, 0.6);
+    }
+
+    body.night .pot,
+    body.night .stat,
+    body.night .heart-msg,
+    body.night .note-card {
+      background: rgba(255, 255, 255, 0.06);
+      color: #F3EADA;
+    }
+
+    body.night .pot .name,
+    body.night .stat .label {
+      color: rgba(243, 234, 218, 0.55);
+    }
+
+    body.night .greeting {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(246, 184, 198, 0.4);
+    }
+
+    body.night .petal {
+      opacity: 0.2;
+    }
+
+    /* ── Compteur d'amour discret ── */
+    .love-counter {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      opacity: 0.7;
+    }
+
+    .love-counter span {
+      color: var(--pink-deep);
+      font-weight: 700;
+    }
+
+    /* ── Guide des étapes ── */
+    .steps-guide {
+      background: linear-gradient(135deg, #fff 0%, #FFF5F8 100%);
+      border: 2px solid var(--pink);
+      border-radius: 22px;
+      padding: 24px 22px;
+      margin-bottom: 38px;
+      box-shadow: 0 6px 0 rgba(232, 137, 159, 0.12);
+    }
+
+    .steps-guide h2 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .steps-guide .steps-intro {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin: 0 0 18px;
+      line-height: 1.55;
+    }
+
+    .step-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: step;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px dashed rgba(232, 137, 159, 0.25);
+      counter-increment: step;
+    }
+
+    .step-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--pink-deep), #D76C85);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .step-item.done .step-num {
+      background: var(--mint-deep);
+    }
+
+    .step-body {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    .step-body strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+    }
+
+    .step-body span {
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    /* ── Questionnaire ── */
+    .quiz-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 24px 22px;
+      box-shadow: 0 6px 0 rgba(203, 185, 232, 0.2);
+    }
+
+    .quiz-card .quiz-intro {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      margin: 0 0 20px;
+    }
+
+    .quiz-q {
+      margin-bottom: 22px;
+    }
+
+    .quiz-q label {
+      display: block;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+
+    .quiz-q textarea,
+    .quiz-q select {
+      width: 100%;
+      border: 2px solid var(--lavender);
+      border-radius: 14px;
+      padding: 11px 14px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .quiz-q textarea {
+      min-height: 72px;
+      resize: vertical;
+    }
+
+    .quiz-q textarea:focus,
+    .quiz-q select:focus {
+      outline: none;
+      border-color: var(--pink-deep);
+    }
+
+    .scale-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .scale-btns input {
+      display: none;
+    }
+
+    .scale-btns label {
+      flex: 1;
+      min-width: 44px;
+      text-align: center;
+      padding: 10px 8px;
+      border: 2px solid var(--lavender);
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.15s;
+      margin: 0;
+    }
+
+    .scale-btns input:checked+label {
+      background: var(--lavender);
+      border-color: #9B7EC8;
+      color: #3E2F52;
+    }
+
+    .quiz-submit {
+      width: 100%;
+      border: none;
+      background: linear-gradient(135deg, var(--pink-deep), #D76C85);
+      color: #fff;
+      padding: 14px;
+      border-radius: 16px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .quiz-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .quiz-done {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #E8F5EC, #D4EDDA);
+      border-radius: 16px;
+      margin-top: 16px;
+    }
+
+    .quiz-done.show {
+      display: block;
+    }
+
+    .quiz-done p {
+      margin: 0;
+      font-size: 14.5px;
+      color: #3A5A42;
+      line-height: 1.55;
+    }
+
+    /* ── Statut d'accès (visible seulement si autorisée) ── */
+    .access-card {
+      display: none;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFE4EC 100%);
+      border: 2px solid var(--gold);
+      border-radius: 22px;
+      padding: 22px 24px;
+      text-align: center;
+      margin-bottom: 38px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .access-card.show {
+      display: block;
+    }
+
+    .access-card h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 18px;
+      color: #8B6914;
+      margin: 0 0 10px;
+    }
+
+    .access-card p {
+      font-size: 14px;
+      color: #6B5344;
+      line-height: 1.55;
+      margin: 0 0 8px;
+    }
+
+    .access-card .code-hint {
+      display: inline-block;
+      margin-top: 10px;
+      background: #fff;
+      border: 2px dashed var(--gold);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 16px;
+      color: var(--pink-deep);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Messages porte secrète ── */
+    .door-wait-msg,
+    .door-block-msg {
+      display: none;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .door-wait-msg.show,
+    .door-block-msg.show {
+      display: block;
+    }
+
+    .door-wait-msg p,
+    .door-block-msg p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: rgba(243, 234, 218, 0.85);
+      line-height: 1.6;
+      margin: 0 0 12px;
+    }
+
+    .door-wait-msg .icon,
+    .door-block-msg .icon {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    /* ── Panneau admin (caché) ── */
+    .admin-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 12, 18, 0.96);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+      padding: 16px;
+    }
+
+    .admin-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .admin-panel {
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #1A1220;
+      border: 2px solid #4A3B50;
+      border-radius: 20px;
+      padding: 28px 24px;
+    }
+
+    .admin-panel h2 {
+      font-family: 'Fredoka', sans-serif;
+      color: var(--pink);
+      margin: 0 0 4px;
+      font-size: 20px;
+    }
+
+    .admin-panel .admin-sub {
+      font-size: 12px;
+      color: rgba(243, 234, 218, 0.45);
+      margin: 0 0 20px;
+    }
+
+    .admin-lock input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1.5px solid rgba(246, 184, 198, 0.3);
+      border-radius: 12px;
+      padding: 11px 14px;
+      color: #F3EADA;
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .admin-lock button {
+      width: 100%;
+      border: none;
+      background: var(--pink-deep);
+      color: #fff;
+      padding: 11px;
+      border-radius: 12px;
+      font-family: 'Fredoka', sans-serif;
+      cursor: pointer;
+    }
+
+    .admin-content {
+      display: none;
+    }
+
+    .admin-content.show {
+      display: block;
+    }
+
+    .admin-status {
+      background: rgba(169, 217, 188, 0.1);
+      border: 1px solid rgba(111, 184, 148, 0.3);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #A9D9BC;
+      line-height: 1.5;
+    }
+
+    .admin-status.pending {
+      border-color: rgba(246, 196, 83, 0.4);
+      background: rgba(246, 196, 83, 0.08);
+      color: #F6C453;
+    }
+
+    .admin-answer {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .admin-answer .q {
+      font-size: 12px;
+      color: rgba(246, 184, 198, 0.7);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .admin-answer .a {
+      font-size: 14px;
+      color: #F3EADA;
+      line-height: 1.45;
+    }
+
+    .admin-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .admin-actions button {
+      border: none;
+      padding: 12px;
+      border-radius: 12px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-authorize {
+      background: var(--mint-deep);
+      color: #fff;
+    }
+
+    .btn-revoke {
+      background: rgba(232, 137, 159, 0.2);
+      color: var(--pink);
+    }
+
+    .btn-close-admin {
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(243, 234, 218, 0.6);
+    }
+
+    .admin-note {
+      font-size: 11px;
+      color: rgba(243, 234, 218, 0.35);
+      margin-top: 14px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .admin-close-x {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: rgba(243, 234, 218, 0.5);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .admin-panel-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    body.night .steps-guide {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(246, 184, 198, 0.3);
+    }
+
+    body.night .quiz-card {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    @media(max-width:480px) {
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .door-frame {
+        padding: 32px 20px 28px;
+      }
+
+      .confession-letter p {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- Écran d'accueil (première visite) -->
-<div class="welcome-overlay" id="welcomeOverlay">
-  <div class="welcome-box">
-    <span class="welcome-flower">🌸</span>
-    <h2>Bienvenue, Mounira</h2>
-    <p>Ce petit jardin a été créé rien que pour toi.<br>Suis bien chaque étape — à la fin, une porte secrète te mènera vers quelque chose d'important.</p>
-    <button onclick="closeWelcome()">Commencer l'aventure 🌿</button>
-  </div>
-</div>
-
-<div class="petals" id="petals"></div>
-
-<div class="wrap">
-
-  <div class="hero">
-    <div class="mascot-wrap" id="mascotWrap">
-      <span class="mascot" id="mascot">🌱</span>
-      <div class="mascot-tooltip" id="mascotTip"></div>
+  <!-- Écran d'accueil (première visite) -->
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-box">
+      <span class="welcome-flower">🌸</span>
+      <h2>Bienvenue, Mounira</h2>
+      <p>Ce petit jardin a été créé rien que pour toi.<br>Suis bien chaque étape — à la fin, une porte secrète te mènera
+        vers quelque chose d'important.</p>
+      <button type="button" id="startAdventureBtn" onclick="closeWelcome()">Commencer l'aventure 🌿</button>
     </div>
-    <h1>Le jardin de Mounira</h1>
-    <p class="sub">Chaque petite chose que tu fais aujourd'hui fait pousser une plante. Arrose-les en cliquant dessus, et regarde ton jardin fleurir au fil de la journée.</p>
-    <div class="greeting" id="greeting"></div>
-    <div class="love-counter" id="loveCounter"></div>
   </div>
 
-  <!-- Guide des étapes -->
-  <div class="steps-guide">
-    <h2>🗺️ Suis bien ces étapes</h2>
-    <p class="steps-intro">Prends ton temps, explore chaque coin de ce jardin. Quelque part, une porte cachée renferme des aveux… mais tu devras mériter d'y entrer.</p>
-    <ol class="step-list" id="stepList">
-      <li class="step-item" id="step1">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <strong>Explore le jardin</strong>
-          <span>Gratte la carte, plante tes tâches, profite des surprises — prends le temps de tout découvrir.</span>
-        </div>
-      </li>
-      <li class="step-item" id="step2">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <strong>Réponds au questionnaire</strong>
-          <span>Sois sincère, réponds avec ton cœur. Il n'y a pas de bonne ou mauvaise réponse — seulement la tienne.</span>
-        </div>
-      </li>
-      <li class="step-item" id="step3">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <strong>Attends l'autorisation</strong>
-          <span>Tes réponses seront lues avec attention. Si tout va bien, tu recevras l'accès à la porte secrète.</span>
-        </div>
-      </li>
-      <li class="step-item" id="step4">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <strong>Trouve la porte secrète</strong>
-          <span>Triple-clique sur les <em>· · ·</em> en bas de page. Entre le code qui t'aura été donné — c'est là que se trouvent les aveux.</span>
-        </div>
-      </li>
-    </ol>
-  </div>
+  <div class="petals" id="petals"></div>
 
-  <!-- Carte d'accès (visible uniquement après autorisation admin) -->
-  <div class="access-card" id="accessCard">
-    <h3>🔓 Ton accès a été débloqué !</h3>
-    <p>Tu peux maintenant ouvrir la porte secrète. Triple-clique sur <strong>· · ·</strong> en bas de page, puis entre ce code :</p>
-    <div class="code-hint" id="accessCodeHint">hanieljtm</div>
-    <p style="margin-top:12px; font-size:13px;">C'est là que se trouvent les aveux… prends le temps de les lire. 💛</p>
-  </div>
+  <div class="wrap">
 
-  <section id="quizSection">
-    <h2>💬 Questionnaire — Étape 2</h2>
-    <div class="quiz-card">
-      <p class="quiz-intro">Quelques questions, rien de compliqué. Réponds honnêtement — personne ne te jugera. Ces réponses restent entre toi et ce jardin.</p>
-      <form id="quizForm">
-        <div class="quiz-q">
-          <label>1. Quand tu passes du temps avec certaines personnes, ça te fait quoi ?</label>
-          <textarea name="q1" required placeholder="Décris ce genre de moment…"></textarea>
-        </div>
-        <div class="quiz-q">
-          <label>2. Sur une échelle de 1 à 5, à quel point tu te sens vraiment toi-même quand tu es avec quelqu'un de spécial ?</label>
-          <div class="scale-btns">
-            <input type="radio" name="q2" id="q2_1" value="1" required><label for="q2_1">1</label>
-            <input type="radio" name="q2" id="q2_2" value="2"><label for="q2_2">2</label>
-            <input type="radio" name="q2" id="q2_3" value="3"><label for="q2_3">3</label>
-            <input type="radio" name="q2" id="q2_4" value="4"><label for="q2_4">4</label>
-            <input type="radio" name="q2" id="q2_5" value="5"><label for="q2_5">5</label>
+    <div class="hero">
+      <div class="mascot-wrap" id="mascotWrap">
+        <span class="mascot" id="mascot">🌱</span>
+        <div class="mascot-tooltip" id="mascotTip"></div>
+      </div>
+      <h1>Le jardin de Mounira</h1>
+      <p class="sub">Chaque petite chose que tu fais aujourd'hui fait pousser une plante. Arrose-les en cliquant dessus,
+        et regarde ton jardin fleurir au fil de la journée.</p>
+      <div class="greeting" id="greeting"></div>
+      <div class="love-counter" id="loveCounter"></div>
+    </div>
+
+    <!-- Guide des étapes -->
+    <div class="steps-guide">
+      <h2>🗺️ Suis bien ces étapes</h2>
+      <p class="steps-intro">Prends ton temps, explore chaque coin de ce jardin. Quelque part, une porte cachée renferme
+        des aveux… mais tu devras mériter d'y entrer.</p>
+      <ol class="step-list" id="stepList">
+        <li class="step-item" id="step1">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Explore le jardin</strong>
+            <span>Gratte la carte, plante tes tâches, profite des surprises — prends le temps de tout découvrir.</span>
           </div>
-        </div>
-        <div class="quiz-q">
-          <label>3. Y a des moments où une personne te revient en tête sans que tu t'y attendes ?</label>
-          <select name="q3" required>
-            <option value="">— Choisis —</option>
-            <option>Ça m'arrive assez souvent</option>
-            <option>Parfois, oui</option>
-            <option>Rarement</option>
-            <option>Je préfère ne pas répondre</option>
-          </select>
-        </div>
-        <div class="quiz-q">
-          <label>4. Qu'est-ce qui t'attire chez quelqu'un en général ?</label>
-          <textarea name="q4" required placeholder="Les qualités que tu apprécies…"></textarea>
-        </div>
-        <div class="quiz-q">
-          <label>5. Comment tu définirais ta relation avec quelqu'un qui compte vraiment pour toi ?</label>
-          <select name="q5" required>
-            <option value="">— Choisis —</option>
-            <option>Des amis proches</option>
-            <option>Quelque chose de plus, peut-être</option>
-            <option>C'est un peu compliqué à dire</option>
-            <option>Je ne sais pas trop</option>
-            <option>Je préfère ne pas répondre</option>
-          </select>
-        </div>
-        <div class="quiz-q">
-          <label>6. Si tu pouvais dire quelque chose à une personne spéciale sans conséquence, ce serait quoi ?</label>
-          <textarea name="q6" placeholder="Même une petite phrase…"></textarea>
-        </div>
-        <div class="quiz-q">
-          <label>7. Si tu découvrais un message secret écrit par quelqu'un pour toi, tu lirais quoi ?</label>
-          <select name="q7" required>
-            <option value="">— Choisis —</option>
-            <option>Oui, tout de suite</option>
-            <option>Peut-être, je réfléchirais</option>
-            <option>Non, pas maintenant</option>
-            <option>Je préfère ne pas répondre</option>
-          </select>
-        </div>
-        <button type="submit" class="quiz-submit" id="quizSubmit">Envoyer mes réponses 🌸</button>
-      </form>
-      <div class="quiz-done" id="quizDone">
-        <p>✅ <strong>Merci Mounira.</strong> Tes réponses ont été enregistrées avec soin.<br><br>Maintenant, patience — si tout est en ordre, tu recevras bientôt l'accès à la porte secrète où se trouvent les aveux. 🌿</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>🔮 Horoscope du cœur</h2>
-    <div class="horoscope-card">
-      <div class="horoscope-label">message du jour pour toi</div>
-      <p class="horoscope-text" id="horoscopeText"></p>
-      <div class="horoscope-date" id="horoscopeDate"></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>🎁 Carte à gratter</h2>
-    <div class="scratch-card">
-      <p class="intro">Gratte la zone dorée pour découvrir un compliment rien que pour toi…</p>
-      <div class="scratch-wrap" id="scratchWrap">
-        <div class="scratch-prize" id="scratchPrize"></div>
-        <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
-      </div>
-      <p class="scratch-hint">Utilise ta souris ou ton doigt ✨</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>🌻 Planter quelque chose à faire</h2>
-    <div class="stats-bar" id="statsBar">
-      <div class="stat"><span class="num" id="statPlants">0</span><span class="label">plantées</span></div>
-      <div class="stat"><span class="num" id="statBloomed">0</span><span class="label">en fleur</span></div>
-      <div class="stat"><span class="num" id="statDays">1</span><span class="label">jour(s)</span></div>
-    </div>
-    <div class="add-row">
-      <input type="text" id="taskInput" placeholder="Ex: réviser 20 min, appeler maman…">
-      <button onclick="plantTask()">Planter</button>
-    </div>
-    <div class="garden" id="garden"></div>
-    <div class="bouquet-reward" id="bouquetReward">
-      <span class="bouquet-emoji">💐</span>
-      <h3>Ton jardin est en fleur !</h3>
-      <p>Toutes tes plantes ont fleuri aujourd'hui — comme toi, tu fais fleurir tout ce que tu touches. Haniel est fier de toi. 🌸</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>📅 Tes jours de jardin</h2>
-    <div class="note-card" style="text-align:center;">
-      <p class="hint" style="margin-bottom:14px;">Chaque jour où tu reviens, une fleur pousse ici.</p>
-      <div class="visit-calendar" id="visitCalendar"></div>
-      <div class="visit-streak" id="visitStreak"></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>💝 Petits mots pour toi</h2>
-    <div class="heart-messages" id="heartMessages"></div>
-  </section>
-
-  <section>
-    <h2>✨ Petite surprise</h2>
-    <div class="surprise-card">
-      <p class="surprise-text" id="surpriseText"></p>
-      <button onclick="newSurprise()">Encore une ✨</button>
-    </div>
-  </section>
-
-  <section>
-    <h2>🫙 Capsule du temps</h2>
-    <div class="capsule-card">
-      <p>Écris un message à ton futur toi — je le garderai ici pour toi, en sécurité.</p>
-      <textarea id="capsuleInput" placeholder="Cher(e) Mounira du futur, aujourd'hui tu as…"></textarea>
-      <button onclick="saveCapsule()">Sceller la capsule 🔒</button>
-      <div class="capsule-saved" id="capsuleSaved">Capsule scellée avec amour 💫</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>📝 Ton petit mot du jour</h2>
-    <div class="note-card">
-      <p class="hint">Écris ce que tu veux ici, juste pour toi.</p>
-      <input type="text" id="noteInput" placeholder="Un mot, une pensée, un gribouillis…">
-    </div>
-  </section>
-
-  <footer>
-    ton petit coin de jardin — <span id="adminTrigger" style="cursor:default;">pensé par H.</span> 🌿<br>
-    <span class="hint-secret" id="secretHint">· · ·</span>
-  </footer>
-</div>
-
-<!-- Panneau admin (caché — mot de passe : maurelle) -->
-<div class="admin-overlay" id="adminOverlay">
-  <div class="admin-panel-wrap">
-    <button class="admin-close-x" onclick="closeAdmin()">✕</button>
-    <div class="admin-panel">
-      <h2>🔐 Administration</h2>
-      <p class="admin-sub">Espace réservé — Haniel uniquement</p>
-
-      <div id="adminLock">
-        <input type="password" id="adminPassword" placeholder="Mot de passe admin" autocomplete="off">
-        <button onclick="tryAdminLogin()">Entrer</button>
-      </div>
-
-      <div class="admin-content" id="adminContent">
-        <div class="admin-status" id="adminStatus"></div>
-        <div id="adminAnswers"></div>
-        <div class="admin-actions">
-          <button class="btn-authorize" onclick="authorizeAccess()">✅ Autoriser l'accès aux aveux pour Mounira</button>
-          <button class="btn-revoke" onclick="revokeAccess()">🚫 Révoquer l'accès</button>
-          <button class="btn-close-admin" onclick="closeAdmin()">Fermer</button>
-        </div>
-        <p class="admin-note">Les réponses sont enregistrées sur l'appareil de Mounira. Ouvre ce site sur son téléphone ou ordinateur pour les voir ici, puis décide si tu lui donnes l'autorisation.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Médaillon secret (noms) -->
-<div class="flower-overlay" id="flowerOverlay">
-  <button class="flower-close" onclick="closeFlower()">✕</button>
-  <div class="medallion" id="medallion">
-    <svg viewBox="0 0 200 200">
-      <circle class="frame" cx="100" cy="100" r="94" pathLength="1" style="animation-delay:0s"/>
-      <path pathLength="1" d="M100,168 C99,140 101,118 100,96" style="animation-delay:0.1s"/>
-      <path pathLength="1" d="M100,150 C82,146 68,134 62,116 C80,118 96,130 100,150 Z" style="animation-delay:0.5s"/>
-      <path pathLength="1" d="M100,150 C118,146 132,134 138,116 C120,118 104,130 100,150 Z" style="animation-delay:0.55s"/>
-      <path pathLength="1" d="M100,96 C88,90 84,78 90,66 C96,56 108,54 114,64 C118,72 114,82 104,88 C100,90 100,93 100,96 Z" style="animation-delay:0.9s"/>
-      <path pathLength="1" d="M100,96 C110,88 122,86 132,94 C140,100 140,112 130,116 C122,120 110,116 104,106 C101,101 100,98 100,96 Z" style="animation-delay:1.15s"/>
-      <path pathLength="1" d="M100,96 C112,100 118,110 114,122 C110,132 98,136 92,128 C87,120 90,108 98,100 C99,98 99,97 100,96 Z" style="animation-delay:1.4s"/>
-      <path pathLength="1" d="M100,96 C90,102 78,102 70,92 C64,84 68,73 78,72 C86,71 94,78 98,90 C99,92 100,94 100,96 Z" style="animation-delay:1.65s"/>
-      <circle pathLength="1" cx="100" cy="96" r="5.5" style="animation-delay:1.9s"/>
-    </svg>
-    <div class="flower-message" id="flowerMessage">Hani &amp; Mounira</div>
-  </div>
-</div>
-
-<!-- Porte secrète — aveux -->
-<div class="secret-door-overlay" id="secretDoor">
-  <button class="door-close" onclick="closeSecretDoor()">✕</button>
-  <div class="secret-door">
-    <div class="door-frame">
-      <div class="confession-room" id="confessionRoom">
-        <div class="door-block-msg" id="doorBlockMsg">
-          <span class="icon">🌱</span>
-          <p>Tu dois d'abord répondre au questionnaire (Étape 2) avant de pouvoir accéder à cette porte.</p>
-        </div>
-
-        <div class="door-wait-msg" id="doorWaitMsg">
-          <span class="icon">⏳</span>
-          <p>Tes réponses ont bien été enregistrées.<br>L'accès à cette porte te sera accordé bientôt — patience, Mounira.</p>
-        </div>
-
-        <div class="door-lock lock-form" id="lockForm">
-          <p class="door-title">Une porte discrète</p>
-          <p class="door-sub">Entre le code qui t'a été confié pour découvrir ce qui se cache ici…</p>
-          <div class="door-lock">
-            <input type="password" id="doorPassword" placeholder="code secret" autocomplete="off">
-            <button onclick="tryUnlock()">Entrer</button>
+        </li>
+        <li class="step-item" id="step2">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Réponds au questionnaire</strong>
+            <span>Sois sincère, réponds avec ton cœur. Il n'y a pas de bonne ou mauvaise réponse — seulement la
+              tienne.</span>
           </div>
-          <div class="door-error" id="doorError">Ce n'est pas le bon code…</div>
+        </li>
+        <li class="step-item" id="step3">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Attends l'autorisation</strong>
+            <span>Tes réponses seront lues avec attention. Si tout va bien, tu recevras l'accès à la porte
+              secrète.</span>
+          </div>
+        </li>
+        <li class="step-item" id="step4">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Trouve la porte secrète</strong>
+            <span>Triple-clique sur les <em>· · ·</em> en bas de page. Entre le code qui t'aura été donné — c'est là que
+              se trouvent les aveux.</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Carte d'accès (visible uniquement après autorisation admin) -->
+    <div class="access-card" id="accessCard">
+      <h3>🔓 Ton accès a été débloqué !</h3>
+      <p>Tu peux maintenant ouvrir la porte secrète. Triple-clique sur <strong>· · ·</strong> en bas de page, puis entre
+        ce code :</p>
+      <div class="code-hint" id="accessCodeHint">hanieljtm</div>
+      <p style="margin-top:12px; font-size:13px;">C'est là que se trouvent les aveux… prends le temps de les lire. 💛
+      </p>
+    </div>
+
+    <section id="quizSection">
+      <h2>💬 Questionnaire — Étape 2</h2>
+      <div class="quiz-card">
+        <p class="quiz-intro">Quelques questions, rien de compliqué. Réponds honnêtement — personne ne te jugera. Ces
+          réponses restent entre toi et ce jardin.</p>
+        <form id="quizForm">
+          <div class="quiz-q">
+            <label>1. Quand tu passes du temps avec certaines personnes, ça te fait quoi ?</label>
+            <textarea name="q1" required placeholder="Décris ce genre de moment…"></textarea>
+          </div>
+          <div class="quiz-q">
+            <label>2. Sur une échelle de 1 à 5, à quel point tu te sens vraiment toi-même quand tu es avec quelqu'un de
+              spécial ?</label>
+            <div class="scale-btns">
+              <input type="radio" name="q2" id="q2_1" value="1" required><label for="q2_1">1</label>
+              <input type="radio" name="q2" id="q2_2" value="2"><label for="q2_2">2</label>
+              <input type="radio" name="q2" id="q2_3" value="3"><label for="q2_3">3</label>
+              <input type="radio" name="q2" id="q2_4" value="4"><label for="q2_4">4</label>
+              <input type="radio" name="q2" id="q2_5" value="5"><label for="q2_5">5</label>
+            </div>
+          </div>
+          <div class="quiz-q">
+            <label>3. Y a des moments où une personne te revient en tête sans que tu t'y attendes ?</label>
+            <select name="q3" required>
+              <option value="">— Choisis —</option>
+              <option>Ça m'arrive assez souvent</option>
+              <option>Parfois, oui</option>
+              <option>Rarement</option>
+              <option>Je préfère ne pas répondre</option>
+            </select>
+          </div>
+          <div class="quiz-q">
+            <label>4. Qu'est-ce qui t'attire chez quelqu'un en général ?</label>
+            <textarea name="q4" required placeholder="Les qualités que tu apprécies…"></textarea>
+          </div>
+          <div class="quiz-q">
+            <label>5. Comment tu définirais ta relation avec quelqu'un qui compte vraiment pour toi ?</label>
+            <select name="q5" required>
+              <option value="">— Choisis —</option>
+              <option>Des amis proches</option>
+              <option>Quelque chose de plus, peut-être</option>
+              <option>C'est un peu compliqué à dire</option>
+              <option>Je ne sais pas trop</option>
+              <option>Je préfère ne pas répondre</option>
+            </select>
+          </div>
+          <div class="quiz-q">
+            <label>6. Si tu pouvais dire quelque chose à une personne spéciale sans conséquence, ce serait quoi
+              ?</label>
+            <textarea name="q6" placeholder="Même une petite phrase…"></textarea>
+          </div>
+          <div class="quiz-q">
+            <label>7. Si tu découvrais un message secret écrit par quelqu'un pour toi, est-ce que tu le lirais ?</label>
+            <select name="q7" required>
+              <option value="">— Choisis —</option>
+              <option>Oui, tout de suite</option>
+              <option>Peut-être, je réfléchirais</option>
+              <option>Non, pas maintenant</option>
+              <option>Je préfère ne pas répondre</option>
+            </select>
+          </div>
+          <button type="submit" class="quiz-submit" id="quizSubmit">Envoyer mes réponses 🌸</button>
+        </form>
+        <div class="quiz-done" id="quizDone">
+          <p>✅ <strong>Merci Mounira.</strong> Tes réponses ont été enregistrées avec soin.<br><br>Maintenant, patience
+            — si tout est en ordre, tu recevras bientôt l'accès à la porte secrète où se trouvent les aveux. 🌿</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>🔮 Horoscope du cœur</h2>
+      <div class="horoscope-card">
+        <div class="horoscope-label">message du jour pour toi</div>
+        <p class="horoscope-text" id="horoscopeText"></p>
+        <div class="horoscope-date" id="horoscopeDate"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>🎁 Carte à gratter</h2>
+      <div class="scratch-card">
+        <p class="intro">Gratte la zone dorée pour découvrir un compliment rien que pour toi…</p>
+        <div class="scratch-wrap" id="scratchWrap">
+          <div class="scratch-prize" id="scratchPrize"></div>
+          <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+        </div>
+        <p class="scratch-hint">Utilise ta souris ou ton doigt ✨</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>🌻 Planter quelque chose à faire</h2>
+      <div class="stats-bar" id="statsBar">
+        <div class="stat"><span class="num" id="statPlants">0</span><span class="label">plantées</span></div>
+        <div class="stat"><span class="num" id="statBloomed">0</span><span class="label">en fleur</span></div>
+        <div class="stat"><span class="num" id="statDays">1</span><span class="label">jour(s)</span></div>
+      </div>
+      <div class="add-row">
+        <input type="text" id="taskInput" placeholder="Ex: réviser 20 min, appeler maman…">
+        <button onclick="plantTask()">Planter</button>
+      </div>
+      <div class="garden" id="garden"></div>
+      <div class="bouquet-reward" id="bouquetReward">
+        <span class="bouquet-emoji">💐</span>
+        <h3>Ton jardin est en fleur !</h3>
+        <p>Toutes tes plantes ont fleuri aujourd'hui — comme toi, tu fais fleurir tout ce que tu touches. Haniel est
+          fier de toi. 🌸</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>📅 Tes jours de jardin</h2>
+      <div class="note-card" style="text-align:center;">
+        <p class="hint" style="margin-bottom:14px;">Chaque jour où tu reviens, une fleur pousse ici.</p>
+        <div class="visit-calendar" id="visitCalendar"></div>
+        <div class="visit-streak" id="visitStreak"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>💝 Petits mots pour toi</h2>
+      <div class="heart-messages" id="heartMessages"></div>
+    </section>
+
+    <section>
+      <h2>✨ Petite surprise</h2>
+      <div class="surprise-card">
+        <p class="surprise-text" id="surpriseText"></p>
+        <button onclick="newSurprise()">Encore une ✨</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>🫙 Capsule du temps</h2>
+      <div class="capsule-card">
+        <p>Écris un message à ton futur toi — je le garderai ici pour toi, en sécurité.</p>
+        <textarea id="capsuleInput" placeholder="Cher(e) Mounira du futur, aujourd'hui tu as…"></textarea>
+        <button onclick="saveCapsule()">Sceller la capsule 🔒</button>
+        <div class="capsule-saved" id="capsuleSaved">Capsule scellée avec amour 💫</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>📝 Ton petit mot du jour</h2>
+      <div class="note-card">
+        <p class="hint">Écris ce que tu veux ici, juste pour toi.</p>
+        <input type="text" id="noteInput" placeholder="Un mot, une pensée, un gribouillis…">
+      </div>
+    </section>
+
+    <footer>
+      ton petit coin de jardin — <span id="adminTrigger" style="cursor:default;">pensé par H.</span> 🌿<br>
+      <span class="hint-secret" id="secretHint">· · ·</span>
+    </footer>
+  </div>
+
+  <!-- Panneau admin (caché — mot de passe : maurelle) -->
+  <div class="admin-overlay" id="adminOverlay">
+    <div class="admin-panel-wrap">
+      <button class="admin-close-x" onclick="closeAdmin()">✕</button>
+      <div class="admin-panel">
+        <h2>🔐 Administration</h2>
+        <p class="admin-sub">Espace réservé — Haniel uniquement</p>
+
+        <div id="adminLock">
+          <input type="password" id="adminPassword" placeholder="Mot de passe admin" autocomplete="off">
+          <button onclick="tryAdminLogin()">Entrer</button>
         </div>
 
-        <div class="confession-content" id="confessionContent">
-        <div class="confession-header">
-          <h3>Mounira,</h3>
-          <p>ce que mon cœur n'a jamais su cacher</p>
+        <div class="admin-content" id="adminContent">
+          <div class="admin-status" id="adminStatus"></div>
+          <div id="adminAnswers"></div>
+          <div class="admin-actions">
+            <button class="btn-authorize" onclick="authorizeAccess()">✅ Autoriser l'accès aux aveux pour
+              Mounira</button>
+            <button class="btn-revoke" onclick="revokeAccess()">🚫 Révoquer l'accès</button>
+            <button class="btn-close-admin" onclick="closeAdmin()">Fermer</button>
+          </div>
+          <p class="admin-note">Les réponses sont enregistrées sur l'appareil de Mounira. Ouvre ce site sur son
+            téléphone ou ordinateur pour les voir ici, puis décide si tu lui donnes l'autorisation.</p>
         </div>
-
-        <div class="confession-letter">
-          <p>Je ne sais pas par où commencer, alors je vais être simple : <strong>je t'aime</strong>.</p>
-          <p>Pas comme on aime une chanson qu'on écoute en boucle — comme on aime un endroit où on se sent enfin chez soi. Quand tu ris, c'est comme si quelque chose dans le monde se mettait en place. Quand tu parles, j'écoute chaque mot comme une promesse que la vie peut être belle.</p>
-          <p>Je t'ai créé ce jardin parce que tu fais pousser des choses en moi que je ne savais pas cultiver. De la patience. De la douceur. De l'envie d'être meilleur, juste pour toi.</p>
-          <p>Je ne te demande rien ici. Je voulais juste que tu saches — quelque part, dans un coin secret de ce petit site — que tu es la personne que j'ai choisie, encore et encore, sans hésiter.</p>
-          <p class="signature">— Haniel, qui t'aime vraiment 💛</p>
-        </div>
-
-        <div class="reasons-grid">
-          <div class="reason"><span class="emoji">🌸</span>Ton sourire qui illumine mes journées les plus grises</div>
-          <div class="reason"><span class="emoji">🌙</span>La façon dont tu écoutes, vraiment, sans juger</div>
-          <div class="reason"><span class="emoji">✨</span>Ta force douce — tu avances même quand c'est dur</div>
-          <div class="reason"><span class="emoji">🎵</span>Chaque moment passé avec toi que je garde précieusement</div>
-          <div class="reason"><span class="emoji">🌿</span>Tu me fais vouloir grandir, comme tes plantes</div>
-          <div class="reason"><span class="emoji">💫</span>Parce qu'avec toi, tout semble possible</div>
-        </div>
-
-        <div class="promise-box">
-          <p>Ma promesse : être là. Te soutenir. Te faire rire. Et t'aimer — aujourd'hui, demain, et tous les jours après.</p>
-        </div>
-        </div><!-- /confession-content -->
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  /* ── Variables globales pour les fonctions ── */
-  let welcomeOverlay, garden, taskInput, plants, firstVisit, STAGES;
-  let quizForm, quizDone, quizQuestions;
-  let adminOverlay, adminLoggedIn;
-  let secretDoor, confessionRoom, lockForm, doorBlockMsg, doorWaitMsg, doorPassword, doorError, doorUnlocked;
-  let medallion, flowerOverlay, flowerMessage, noteInput;
-  let capsuleInput, capsuleSaved, savedCapsule;
-  let surpriseText;
-  let mascotTips;
-  const QUIZ_KEY = 'jardin_questionnaire';
-  const AUTH_KEY = 'jardin_aveux_authorized';
-  const ADMIN_PASSWORD = 'maurelle';
-  const SECRET_PASSWORD = 'hanieljtm';
+  <!-- Médaillon secret (noms) -->
+  <div class="flower-overlay" id="flowerOverlay">
+    <button class="flower-close" onclick="closeFlower()">✕</button>
+    <div class="medallion" id="medallion">
+      <svg viewBox="0 0 200 200">
+        <circle class="frame" cx="100" cy="100" r="94" pathLength="1" style="animation-delay:0s" />
+        <path pathLength="1" d="M100,168 C99,140 101,118 100,96" style="animation-delay:0.1s" />
+        <path pathLength="1" d="M100,150 C82,146 68,134 62,116 C80,118 96,130 100,150 Z" style="animation-delay:0.5s" />
+        <path pathLength="1" d="M100,150 C118,146 132,134 138,116 C120,118 104,130 100,150 Z"
+          style="animation-delay:0.55s" />
+        <path pathLength="1"
+          d="M100,96 C88,90 84,78 90,66 C96,56 108,54 114,64 C118,72 114,82 104,88 C100,90 100,93 100,96 Z"
+          style="animation-delay:0.9s" />
+        <path pathLength="1"
+          d="M100,96 C110,88 122,86 132,94 C140,100 140,112 130,116 C122,120 110,116 104,106 C101,101 100,98 100,96 Z"
+          style="animation-delay:1.15s" />
+        <path pathLength="1"
+          d="M100,96 C112,100 118,110 114,122 C110,132 98,136 92,128 C87,120 90,108 98,100 C99,98 99,97 100,96 Z"
+          style="animation-delay:1.4s" />
+        <path pathLength="1"
+          d="M100,96 C90,102 78,102 70,92 C64,84 68,73 78,72 C86,71 94,78 98,90 C99,92 100,94 100,96 Z"
+          style="animation-delay:1.65s" />
+        <circle pathLength="1" cx="100" cy="96" r="5.5" style="animation-delay:1.9s" />
+      </svg>
+      <div class="flower-message" id="flowerMessage">Hani &amp; Mounira</div>
+    </div>
+  </div>
 
-document.addEventListener('DOMContentLoaded', function() {
-  /* ── Écran d'accueil ── */
-  welcomeOverlay = document.getElementById('welcomeOverlay');
-  if(localStorage.getItem('jardin_welcomed')){
-    welcomeOverlay.classList.add('hide');
-  }
-  window.closeWelcome = function(){
-    localStorage.setItem('jardin_welcomed', '1');
-    welcomeOverlay.classList.add('hide');
-    spawnConfetti(window.innerWidth / 2, window.innerHeight / 2, 30);
-  }
+  <!-- Porte secrète — aveux -->
+  <div class="secret-door-overlay" id="secretDoor">
+    <button class="door-close" onclick="closeSecretDoor()">✕</button>
+    <div class="secret-door">
+      <div class="door-frame">
+        <div class="confession-room" id="confessionRoom">
+          <div class="door-block-msg" id="doorBlockMsg">
+            <span class="icon">🌱</span>
+            <p>Tu dois d'abord répondre au questionnaire (Étape 2) avant de pouvoir accéder à cette porte.</p>
+          </div>
 
-  /* ── Mode nuit automatique ── */
-  (function applyNightMode(){
-    const h = new Date().getHours();
-    if(h >= 20 || h < 7) document.body.classList.add('night');
-  })();
+          <div class="door-wait-msg" id="doorWaitMsg">
+            <span class="icon">⏳</span>
+            <p>Tes réponses ont bien été enregistrées.<br>L'accès à cette porte te sera accordé bientôt — patience,
+              Mounira.</p>
+          </div>
 
-  /* ── Compteur d'amour (depuis la première visite) ── */
-  (function setLoveCounter(){
-    const first = localStorage.getItem('jardin_first_visit');
-    if(!first) return;
-    const days = Math.max(1, Math.ceil((Date.now() - new Date(first)) / 86400000));
-    document.getElementById('loveCounter').innerHTML =
-      `Ce jardin existe depuis <span>${days}</span> jour${days > 1 ? 's' : ''} — pensé pour toi`;
-  })();
+          <div class="door-lock lock-form" id="lockForm">
+            <p class="door-title">Une porte discrète</p>
+            <p class="door-sub">Entre le code qui t'a été confié pour découvrir ce qui se cache ici…</p>
+            <div class="door-lock">
+              <input type="password" id="doorPassword" placeholder="code secret" autocomplete="off">
+              <button onclick="tryUnlock()">Entrer</button>
+            </div>
+            <div class="door-error" id="doorError">Ce n'est pas le bon code…</div>
+          </div>
 
-  /* ── Horoscope du cœur (change chaque jour) ── */
-  const horoscopes = [
-    "Aujourd'hui, quelqu'un pense à toi en souriant. Laisse cette énergie t'accompagner.",
-    "Une surprise douce t'attend — reste ouverte aux petites joies.",
-    "Ton sourire a le pouvoir de changer la journée de quelqu'un. Utilise-le.",
-    "La patience que tu montres portera ses fruits, comme tes plantes.",
-    "Un moment de calme t'apportera plus qu'une heure de course.",
-    "Quelqu'un admire ta force sans que tu le saches. Sois fière de toi.",
-    "Aujourd'hui est un bon jour pour te dire : tu mérites d'être heureuse.",
-    "Une conversation sincère pourrait illuminer ta soirée.",
-    "Écoute ton intuition — elle te guide vers de belles choses.",
-    "Un geste gentil envers toi-même changera toute ta journée.",
-    "Les étoiles sont alignées pour un moment de douceur. Accueille-le.",
-    "Ta présence rend le monde plus lumineux. N'oublie jamais ça.",
-    "Quelqu'un a envie de te voir sourire aujourd'hui. 💫",
-    "Un rêve que tu as mis de côté mérite qu'on y repense.",
-    "La joie que tu donnes reviendra vers toi, multipliée."
-  ];
-  (function setHoroscope(){
-    const today = new Date().toDateString();
-    const idx = [...today].reduce((a, c) => a + c.charCodeAt(0), 0) % horoscopes.length;
-    document.getElementById('horoscopeText').textContent = horoscopes[idx];
-    const opts = { weekday:'long', day:'numeric', month:'long' };
-    document.getElementById('horoscopeDate').textContent =
-      new Date().toLocaleDateString('fr-FR', opts);
-  })();
+          <div class="confession-content" id="confessionContent">
+            <div class="confession-header">
+              <h3>Mounira,</h3>
+              <p>ce que mon cœur n'a jamais su cacher</p>
+            </div>
 
-  /* ── Carte à gratter ── */
-  const scratchCompliments = [
-    "Tu es la plus belle surprise de ma vie.",
-    "Ton rire, c'est ma chanson préférée.",
-    "Je suis chanceux(se) de te connaître.",
-    "Tu mérites toutes les fleurs du monde.",
-    "Avec toi, même un lundi devient un dimanche.",
-    "Tu es mon endroit préféré, peu importe où.",
-    "Chaque jour avec toi est un cadeau.",
-    "Tu es plus forte et plus belle que tu ne le crois.",
-    "Quelqu'un t'aime — vraiment, profondément.",
-    "Tu fais briller les gens autour de toi."
-  ];
-  (function initScratchCard(){
-    const canvas = document.getElementById('scratchCanvas');
-    const wrap = document.getElementById('scratchWrap');
-    const prize = document.getElementById('scratchPrize');
-    const ctx = canvas.getContext('2d');
-    const today = new Date().toDateString();
-    let savedIdx = localStorage.getItem('jardin_scratch_' + today);
-    if(savedIdx === null){
-      savedIdx = Math.floor(Math.random() * scratchCompliments.length);
-      localStorage.setItem('jardin_scratch_' + today, savedIdx);
+            <div class="confession-letter">
+              <p>Je ne sais pas par où commencer, alors je vais être simple : <strong>je t'aime</strong>.</p>
+              <p>Pas comme on aime une chanson qu'on écoute en boucle — comme on aime un endroit où on se sent enfin
+                chez soi. Quand tu ris, c'est comme si quelque chose dans le monde se mettait en place. Quand tu parles,
+                j'écoute chaque mot comme une promesse que la vie peut être belle.</p>
+              <p>Je t'ai créé ce jardin parce que tu fais pousser des choses en moi que je ne savais pas cultiver. De la
+                patience. De la douceur. De l'envie d'être meilleur, juste pour toi.</p>
+              <p>Je ne te demande rien ici. Je voulais juste que tu saches — quelque part, dans un coin secret de ce
+                petit site — que tu es la personne que j'ai choisie, encore et encore, sans hésiter.</p>
+              <p class="signature">— Haniel, qui t'aime vraiment 💛</p>
+            </div>
+
+            <div class="reasons-grid">
+              <div class="reason"><span class="emoji">🌸</span>Ton sourire qui illumine mes journées les plus grises
+              </div>
+              <div class="reason"><span class="emoji">🌙</span>La façon dont tu écoutes, vraiment, sans juger</div>
+              <div class="reason"><span class="emoji">✨</span>Ta force douce — tu avances même quand c'est dur</div>
+              <div class="reason"><span class="emoji">🎵</span>Chaque moment passé avec toi que je garde précieusement
+              </div>
+              <div class="reason"><span class="emoji">🌿</span>Tu me fais vouloir grandir, comme tes plantes</div>
+              <div class="reason"><span class="emoji">💫</span>Parce qu'avec toi, tout semble possible</div>
+            </div>
+
+            <div class="promise-box">
+              <p>Ma promesse : être là. Te soutenir. Te faire rire. Et t'aimer — aujourd'hui, demain, et tous les jours
+                après.</p>
+            </div>
+          </div><!-- /confession-content -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ── Variables globales pour les fonctions ── */
+    let welcomeOverlay, garden, taskInput, plants, firstVisit, STAGES;
+    let quizForm, quizDone, quizQuestions;
+    let adminOverlay, adminLoggedIn;
+    let secretDoor, confessionRoom, lockForm, doorBlockMsg, doorWaitMsg, doorPassword, doorError, doorUnlocked;
+    let medallion, flowerOverlay, flowerMessage, noteInput;
+    let capsuleInput, capsuleSaved, savedCapsule;
+    let surpriseText;
+    const QUIZ_KEY = 'jardin_questionnaire';
+    const AUTH_KEY = 'jardin_aveux_authorized';
+    const ADMIN_PASSWORD = 'maurelle';
+    const SECRET_PASSWORD = 'hanieljtm';
+
+    /* ── Confettis (disponible immédiatement) ── */
+    function spawnConfetti(x, y, count) {
+      try {
+        const colors = ['#F6B8C6', '#A9D9BC', '#CBB9E8', '#F6C453', '#E8899F', '#D9B25C'];
+        for (let i = 0; i < count; i++) {
+          const c = document.createElement('div');
+          c.className = 'confetti';
+          c.style.left = (x + (Math.random() - 0.5) * 200) + 'px';
+          c.style.top = y + 'px';
+          c.style.background = colors[Math.floor(Math.random() * colors.length)];
+          c.style.animationDuration = (2 + Math.random() * 2) + 's';
+          c.style.animationDelay = (Math.random() * 0.5) + 's';
+          document.body.appendChild(c);
+          setTimeout(() => c.remove(), 4000);
+        }
+      } catch (e) {}
     }
-    prize.textContent = scratchCompliments[savedIdx];
+    window.spawnConfetti = spawnConfetti;
 
-    function resize(){
-      canvas.width = wrap.offsetWidth;
-      canvas.height = wrap.offsetHeight;
-      ctx.fillStyle = '#D9B25C';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(180,140,50,0.3)';
-      for(let i = 0; i < 40; i++){
-        ctx.beginPath();
-        ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height, Math.random()*3+1, 0, Math.PI*2);
-        ctx.fill();
+    /* ── Fermeture de l'écran d'accueil (disponible immédiatement) ── */
+    function closeWelcome() {
+      const overlay = document.getElementById('welcomeOverlay');
+      if (overlay) {
+        overlay.classList.add('hide');
+        overlay.style.pointerEvents = 'none';
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 500);
       }
-      ctx.font = '600 14px Nunito, sans-serif';
-      ctx.fillStyle = 'rgba(255,255,255,0.5)';
-      ctx.textAlign = 'center';
-      ctx.fillText('✨ gratte ici ✨', canvas.width/2, canvas.height/2 + 5);
+      try {
+        localStorage.setItem('jardin_welcomed', '1');
+      } catch (e) {
+        console.warn('localStorage non disponible', e);
+      }
+      try {
+        spawnConfetti(window.innerWidth / 2, window.innerHeight / 2, 30);
+      } catch (e) {}
     }
-    resize();
-    window.addEventListener('resize', resize);
+    window.closeWelcome = closeWelcome;
 
-    let scratching = false;
-    function scratch(x, y){
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.beginPath();
-      ctx.arc(x, y, 18, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    function getPos(e){
-      const rect = canvas.getBoundingClientRect();
-      const src = e.touches ? e.touches[0] : e;
-      return { x: src.clientX - rect.left, y: src.clientY - rect.top };
-    }
-    canvas.addEventListener('mousedown', e => { scratching = true; const p = getPos(e); scratch(p.x, p.y); });
-    canvas.addEventListener('mousemove', e => { if(scratching){ const p = getPos(e); scratch(p.x, p.y); }});
-    canvas.addEventListener('mouseup', () => scratching = false);
-    canvas.addEventListener('mouseleave', () => scratching = false);
-    canvas.addEventListener('touchstart', e => { e.preventDefault(); scratching = true; const p = getPos(e); scratch(p.x, p.y); });
-    canvas.addEventListener('touchmove', e => { e.preventDefault(); if(scratching){ const p = getPos(e); scratch(p.x, p.y); }});
-    canvas.addEventListener('touchend', () => scratching = false);
-  })();
+    function initApp() {
+      /* ── Écran d'accueil ── */
+      welcomeOverlay = document.getElementById('welcomeOverlay');
+      try {
+        if (localStorage.getItem('jardin_welcomed') && welcomeOverlay) {
+          welcomeOverlay.classList.add('hide');
+          welcomeOverlay.style.display = 'none';
+        }
+      } catch (e) {}
 
-  /* ── Calendrier des visites ── */
-  (function trackVisits(){
-    const today = new Date().toISOString().slice(0, 10);
-    let visits = JSON.parse(localStorage.getItem('jardin_visits') || '[]');
-    if(!visits.includes(today)){
-      visits.push(today);
-      localStorage.setItem('jardin_visits', JSON.stringify(visits));
-    }
-    const cal = document.getElementById('visitCalendar');
-    const now = new Date();
-    for(let i = 6; i >= 0; i--){
-      const d = new Date(now);
-      d.setDate(d.getDate() - i);
-      const key = d.toISOString().slice(0, 10);
-      const dot = document.createElement('div');
-      dot.className = 'visit-dot' + (visits.includes(key) ? ' visited' : '') + (key === today ? ' today' : '');
-      dot.textContent = d.getDate();
-      dot.title = d.toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' });
-      cal.appendChild(dot);
-    }
-    const streak = calcStreak(visits);
-    document.getElementById('visitStreak').textContent =
-      streak > 1 ? `🔥 ${streak} jours d'affilée — continue comme ça !` :
-      streak === 1 ? '🌱 Premier jour de jardin — bienvenue !' : '';
-  })();
-  function calcStreak(visits){
-    if(!visits.length) return 0;
-    const sorted = [...visits].sort().reverse();
-    let streak = 0;
-    const check = new Date();
-    for(let i = 0; i < sorted.length; i++){
-      const key = check.toISOString().slice(0, 10);
-      if(sorted.includes(key)){ streak++; check.setDate(check.getDate() - 1); }
-      else break;
-    }
-    return streak;
-  }
+      const startBtn = document.getElementById('startAdventureBtn');
+      if (startBtn) {
+        startBtn.addEventListener('click', closeWelcome);
+      }
 
-  /* ── Clic mascotte → cœurs + message ── */
-  const mascotTips = [
-    "Tu es adorable 💕", "Haniel pense à toi", "Clique encore !",
-    "Tu fais pousser mon cœur 🌱", "Mon emoji préféré c'est toi",
-    "Bisou virtuel 💋", "Tu es ma fleur préférée"
-  ];
-  document.getElementById('mascot').addEventListener('click', function(e){
-    const wrap = document.getElementById('mascotWrap');
-    const tip = document.getElementById('mascotTip');
-    tip.textContent = mascotTips[Math.floor(Math.random() * mascotTips.length)];
-    wrap.classList.add('show-tip');
-    setTimeout(() => wrap.classList.remove('show-tip'), 2000);
-    for(let i = 0; i < 5; i++){
-      setTimeout(() => {
-        const h = document.createElement('div');
-        h.className = 'floating-heart';
-        h.textContent = ['💕','💖','🌸','💗','✨'][Math.floor(Math.random()*5)];
-        h.style.left = (e.clientX + (Math.random()-0.5)*60) + 'px';
-        h.style.top = e.clientY + 'px';
-        document.body.appendChild(h);
-        setTimeout(() => h.remove(), 1200);
-      }, i * 80);
-    }
-  });
+      /* ── Mode nuit automatique ── */
+      (function applyNightMode() {
+        const h = new Date().getHours();
+        if (h >= 20 || h < 7) document.body.classList.add('night');
+      })();
 
-  /* ── Pétales flottants ── */
-  (function initPetals(){
-    const container = document.getElementById('petals');
-    const icons = ['🌸','🌺','✿','🍃','💮'];
-    for(let i = 0; i < 12; i++){
-      const p = document.createElement('span');
-      p.className = 'petal';
-      p.textContent = icons[i % icons.length];
-      p.style.left = Math.random() * 100 + '%';
-      p.style.animationDuration = (12 + Math.random() * 18) + 's';
-      p.style.animationDelay = (Math.random() * 15) + 's';
-      p.style.fontSize = (10 + Math.random() * 10) + 'px';
-      container.appendChild(p);
-    }
-  })();
+      /* ── Compteur d'amour (depuis la première visite) ── */
+      (function setLoveCounter() {
+        let first = localStorage.getItem('jardin_first_visit');
+        if (!first) {
+          first = new Date().toISOString();
+          localStorage.setItem('jardin_first_visit', first);
+        }
+        const days = Math.max(1, Math.ceil((Date.now() - new Date(first)) / 86400000));
+        document.getElementById('loveCounter').innerHTML =
+          `Ce jardin existe depuis <span>${days}</span> jour${days > 1 ? 's' : ''} — pensé pour toi`;
+      })();
 
-  /* ── Salutation selon l'heure ── */
-  (function setGreeting(){
-    const h = new Date().getHours();
-    let msg;
-    if(h < 12) msg = 'Bonjour Mounira ☀️ — une belle journée t'attend';
-    else if(h < 18) msg = 'Bon après-midi Mounira 🌤️ — continue de briller';
-    else msg = 'Bonne soirée Mounira 🌙 — repose-toi bien';
-    document.getElementById('greeting').textContent = msg;
-  })();
+      /* ── Horoscope du cœur (change chaque jour) ── */
+      const horoscopes = [
+        "Aujourd'hui, quelqu'un pense à toi en souriant. Laisse cette énergie t'accompagner.",
+        "Une surprise douce t'attend — reste ouverte aux petites joies.",
+        "Ton sourire a le pouvoir de changer la journée de quelqu'un. Utilise-le.",
+        "La patience que tu montres portera ses fruits, comme tes plantes.",
+        "Un moment de calme t'apportera plus qu'une heure de course.",
+        "Quelqu'un admire ta force sans que tu le saches. Sois fière de toi.",
+        "Aujourd'hui est un bon jour pour te dire : tu mérites d'être heureuse.",
+        "Une conversation sincère pourrait illuminer ta soirée.",
+        "Écoute ton intuition — elle te guide vers de belles choses.",
+        "Un geste gentil envers toi-même changera toute ta journée.",
+        "Les étoiles sont alignées pour un moment de douceur. Accueille-le.",
+        "Ta présence rend le monde plus lumineux. N'oublie jamais ça.",
+        "Quelqu'un a envie de te voir sourire aujourd'hui. 💫",
+        "Un rêve que tu as mis de côté mérite qu'on y repense.",
+        "La joie que tu donnes reviendra vers toi, multipliée."
+      ];
+      (function setHoroscope() {
+        const today = new Date().toDateString();
+        const idx = [...today].reduce((a, c) => a + c.charCodeAt(0), 0) % horoscopes.length;
+        document.getElementById('horoscopeText').textContent = horoscopes[idx];
+        const opts = { weekday: 'long', day: 'numeric', month: 'long' };
+        document.getElementById('horoscopeDate').textContent =
+          new Date().toLocaleDateString('fr-FR', opts);
+      })();
 
-  /* ── Jardin ── */
-  STAGES = ['🌰','🌱','🌿','🌸'];
-  garden = document.getElementById('garden');
-  taskInput = document.getElementById('taskInput');
+      /* ── Carte à gratter ── */
+      const scratchCompliments = [
+        "Tu es la plus belle surprise de ma vie.",
+        "Ton rire, c'est ma chanson préférée.",
+        "Je suis chanceux(se) de te connaître.",
+        "Tu mérites toutes les fleurs du monde.",
+        "Avec toi, même un lundi devient un dimanche.",
+        "Tu es mon endroit préféré, peu importe où.",
+        "Chaque jour avec toi est un cadeau.",
+        "Tu es plus forte et plus belle que tu ne le crois.",
+        "Quelqu'un t'aime — vraiment, profondément.",
+        "Tu fais briller les gens autour de toi."
+      ];
+      (function initScratchCard() {
+        const canvas = document.getElementById('scratchCanvas');
+        const wrap = document.getElementById('scratchWrap');
+        const prize = document.getElementById('scratchPrize');
+        if (!canvas || !wrap || !prize || typeof canvas.getContext !== 'function') return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        const today = new Date().toDateString();
+        let savedIdx = localStorage.getItem('jardin_scratch_' + today);
+        if (savedIdx === null) {
+          savedIdx = Math.floor(Math.random() * scratchCompliments.length);
+          localStorage.setItem('jardin_scratch_' + today, savedIdx);
+        }
+        prize.textContent = scratchCompliments[savedIdx];
 
-  plants = JSON.parse(localStorage.getItem('jardin_plants') || '[]');
-  firstVisit = localStorage.getItem('jardin_first_visit');
-  if(!firstVisit){
-    firstVisit = new Date().toISOString();
-    localStorage.setItem('jardin_first_visit', firstVisit);
-  }
+        function resize() {
+          canvas.width = wrap.offsetWidth;
+          canvas.height = wrap.offsetHeight;
+          ctx.fillStyle = '#D9B25C';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = 'rgba(180,140,50,0.3)';
+          for (let i = 0; i < 40; i++) {
+            ctx.beginPath();
+            ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 3 + 1, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.font = '600 14px Nunito, sans-serif';
+          ctx.fillStyle = 'rgba(255,255,255,0.5)';
+          ctx.textAlign = 'center';
+          ctx.fillText('✨ gratte ici ✨', canvas.width / 2, canvas.height / 2 + 5);
+        }
+        resize();
+        window.addEventListener('resize', resize);
 
-  function save(){ localStorage.setItem('jardin_plants', JSON.stringify(plants)); }
+        let scratching = false;
+        function scratch(x, y) {
+          ctx.globalCompositeOperation = 'destination-out';
+          ctx.beginPath();
+          ctx.arc(x, y, 18, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        function getPos(e) {
+          const rect = canvas.getBoundingClientRect();
+          const src = e.touches ? e.touches[0] : e;
+          return { x: src.clientX - rect.left, y: src.clientY - rect.top };
+        }
+        canvas.addEventListener('mousedown', e => { scratching = true; const p = getPos(e); scratch(p.x, p.y); });
+        canvas.addEventListener('mousemove', e => { if (scratching) { const p = getPos(e); scratch(p.x, p.y); } });
+        canvas.addEventListener('mouseup', () => scratching = false);
+        canvas.addEventListener('mouseleave', () => scratching = false);
+        canvas.addEventListener('touchstart', e => { e.preventDefault(); scratching = true; const p = getPos(e); scratch(p.x, p.y); });
+        canvas.addEventListener('touchmove', e => { e.preventDefault(); if (scratching) { const p = getPos(e); scratch(p.x, p.y); } });
+        canvas.addEventListener('touchend', () => scratching = false);
+      })();
 
-  function updateStats(){
-    document.getElementById('statPlants').textContent = plants.length;
-    document.getElementById('statBloomed').textContent = plants.filter(p => p.stage >= STAGES.length - 1).length;
-    const days = Math.max(1, Math.ceil((Date.now() - new Date(firstVisit)) / 86400000));
-    document.getElementById('statDays').textContent = days;
-  }
+      /* ── Calendrier des visites ── */
+      (function trackVisits() {
+        const today = new Date().toISOString().slice(0, 10);
+        let visits = JSON.parse(localStorage.getItem('jardin_visits') || '[]');
+        if (!visits.includes(today)) {
+          visits.push(today);
+          localStorage.setItem('jardin_visits', JSON.stringify(visits));
+        }
+        const cal = document.getElementById('visitCalendar');
+        const now = new Date();
+        for (let i = 6; i >= 0; i--) {
+          const d = new Date(now);
+          d.setDate(d.getDate() - i);
+          const key = d.toISOString().slice(0, 10);
+          const dot = document.createElement('div');
+          dot.className = 'visit-dot' + (visits.includes(key) ? ' visited' : '') + (key === today ? ' today' : '');
+          dot.textContent = d.getDate();
+          dot.title = d.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+          cal.appendChild(dot);
+        }
+        const streak = calcStreak(visits);
+        document.getElementById('visitStreak').textContent =
+          streak > 1 ? `🔥 ${streak} jours d'affilée — continue comme ça !` :
+            streak === 1 ? '🌱 Premier jour de jardin — bienvenue !' : '';
+      })();
+      function calcStreak(visits) {
+        if (!visits.length) return 0;
+        const sorted = [...visits].sort().reverse();
+        let streak = 0;
+        const check = new Date();
+        for (let i = 0; i < sorted.length; i++) {
+          const key = check.toISOString().slice(0, 10);
+          if (sorted.includes(key)) { streak++; check.setDate(check.getDate() - 1); }
+          else break;
+        }
+        return streak;
+      }
 
-  function render(){
-    garden.innerHTML = '';
-    if(plants.length === 0){
-      garden.innerHTML = '<p class="empty-note">Ton jardin est vide — plante ta première petite tâche. 🌱</p>';
-    } else {
-      plants.forEach((p, i) => {
-        const bloomed = p.stage >= STAGES.length - 1;
-        const div = document.createElement('div');
-        div.className = 'pot' + (bloomed ? ' bloomed' : '');
-        div.onclick = () => water(i);
-        div.innerHTML = `<span class="plant">${STAGES[p.stage]}</span><div class="name">${escapeHtml(p.text)}</div><div class="stage-label">${bloomed ? 'épanouie ✨' : 'clique pour arroser'}</div>`;
-        garden.appendChild(div);
+      /* ── Clic mascotte → cœurs + message ── */
+      const mascotTips = [
+        "Tu es adorable 💕", "Haniel pense à toi", "Clique encore !",
+        "Tu fais pousser mon cœur 🌱", "Mon emoji préféré c'est toi",
+        "Bisou virtuel 💋", "Tu es ma fleur préférée"
+      ];
+      document.getElementById('mascot').addEventListener('click', function (e) {
+        const wrap = document.getElementById('mascotWrap');
+        const tip = document.getElementById('mascotTip');
+        tip.textContent = mascotTips[Math.floor(Math.random() * mascotTips.length)];
+        wrap.classList.add('show-tip');
+        setTimeout(() => wrap.classList.remove('show-tip'), 2000);
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            const h = document.createElement('div');
+            h.className = 'floating-heart';
+            h.textContent = ['💕', '💖', '🌸', '💗', '✨'][Math.floor(Math.random() * 5)];
+            h.style.left = (e.clientX + (Math.random() - 0.5) * 60) + 'px';
+            h.style.top = e.clientY + 'px';
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 1200);
+          }, i * 80);
+        }
       });
-    }
-    updateStats();
-    checkBouquet();
-  }
 
-  function checkBouquet(){
-    const bouquet = document.getElementById('bouquetReward');
-    if(plants.length > 0 && plants.every(p => p.stage >= STAGES.length - 1)){
-      bouquet.classList.add('show');
-    } else {
-      bouquet.classList.remove('show');
-    }
-  }
+      /* ── Pétales flottants ── */
+      (function initPetals() {
+        const container = document.getElementById('petals');
+        const icons = ['🌸', '🌺', '✿', '🍃', '💮'];
+        for (let i = 0; i < 12; i++) {
+          const p = document.createElement('span');
+          p.className = 'petal';
+          p.textContent = icons[i % icons.length];
+          p.style.left = Math.random() * 100 + '%';
+          p.style.animationDuration = (12 + Math.random() * 18) + 's';
+          p.style.animationDelay = (Math.random() * 15) + 's';
+          p.style.fontSize = (10 + Math.random() * 10) + 'px';
+          container.appendChild(p);
+        }
+      })();
 
-  function escapeHtml(str){
-    const d = document.createElement('div');
-    d.textContent = str;
-    return d.innerHTML;
-  }
+      /* ── Salutation selon l'heure ── */
+      (function setGreeting() {
+        const h = new Date().getHours();
+        let msg;
+        if (h < 12) msg = "Bonjour Mounira ☀️ — une belle journée t'attend";
+        else if (h < 18) msg = "Bon après-midi Mounira 🌤️ — continue de briller";
+        else msg = "Bonne soirée Mounira 🌙 — repose-toi bien";
+        document.getElementById('greeting').textContent = msg;
+      })();
 
-  window.plantTask = function(){
-    const val = taskInput.value.trim();
-    if(!val) return;
-    plants.push({text: val, stage: 0});
-    taskInput.value = '';
-    save();
-    render();
-  }
-  taskInput.addEventListener('keydown', e => { if(e.key === 'Enter') window.plantTask(); });
+      /* ── Jardin ── */
+      STAGES = ['🌰', '🌱', '🌿', '🌸'];
+      garden = document.getElementById('garden');
+      taskInput = document.getElementById('taskInput');
 
-  function water(i){
-    if(plants[i].stage < STAGES.length - 1){
-      plants[i].stage++;
-      save();
-      render();
-      if(plants[i].stage >= STAGES.length - 1){
-        spawnConfetti(window.innerWidth / 2, window.innerHeight / 2, 20);
+      plants = JSON.parse(localStorage.getItem('jardin_plants') || '[]');
+      firstVisit = localStorage.getItem('jardin_first_visit');
+      if (!firstVisit) {
+        firstVisit = new Date().toISOString();
+        localStorage.setItem('jardin_first_visit', firstVisit);
+      }
+
+      function save() { localStorage.setItem('jardin_plants', JSON.stringify(plants)); }
+
+      function updateStats() {
+        document.getElementById('statPlants').textContent = plants.length;
+        document.getElementById('statBloomed').textContent = plants.filter(p => p.stage >= STAGES.length - 1).length;
+        const days = Math.max(1, Math.ceil((Date.now() - new Date(firstVisit)) / 86400000));
+        document.getElementById('statDays').textContent = days;
+      }
+
+      function render() {
+        garden.innerHTML = '';
+        if (plants.length === 0) {
+          garden.innerHTML = '<p class="empty-note">Ton jardin est vide — plante ta première petite tâche. 🌱</p>';
+        } else {
+          plants.forEach((p, i) => {
+            const bloomed = p.stage >= STAGES.length - 1;
+            const div = document.createElement('div');
+            div.className = 'pot' + (bloomed ? ' bloomed' : '');
+            div.onclick = () => water(i);
+            div.innerHTML = `<span class="plant">${STAGES[p.stage]}</span><div class="name">${escapeHtml(p.text)}</div><div class="stage-label">${bloomed ? 'épanouie ✨' : 'clique pour arroser'}</div>`;
+            garden.appendChild(div);
+          });
+        }
+        updateStats();
         checkBouquet();
-        if(plants.every(p => p.stage >= STAGES.length - 1)){
-          spawnConfetti(window.innerWidth / 2, window.innerHeight / 3, 50);
+      }
+
+      function checkBouquet() {
+        const bouquet = document.getElementById('bouquetReward');
+        if (plants.length > 0 && plants.every(p => p.stage >= STAGES.length - 1)) {
+          bouquet.classList.add('show');
+        } else {
+          bouquet.classList.remove('show');
         }
       }
+
+      function escapeHtml(str) {
+        const d = document.createElement('div');
+        d.textContent = str;
+        return d.innerHTML;
+      }
+
+      window.plantTask = function () {
+        const val = taskInput.value.trim();
+        if (!val) return;
+        plants.push({ text: val, stage: 0 });
+        taskInput.value = '';
+        save();
+        render();
+      };
+      taskInput.addEventListener('keydown', e => { if (e.key === 'Enter') window.plantTask(); });
+
+      function water(i) {
+        if (plants[i].stage < STAGES.length - 1) {
+          plants[i].stage++;
+          save();
+          render();
+          if (plants[i].stage >= STAGES.length - 1) {
+            spawnConfetti(window.innerWidth / 2, window.innerHeight / 2, 20);
+            checkBouquet();
+            if (plants.every(p => p.stage >= STAGES.length - 1)) {
+              spawnConfetti(window.innerWidth / 2, window.innerHeight / 3, 50);
+            }
+          }
+        }
+      }
+
+      render();
+
+      /* ── Petits mots pour Mounira ── */
+      const heartMsgs = [
+        { text: "Tu es la personne qui rend mes journées ordinaires extraordinaires.", from: "— H." },
+        { text: "Je ne te le dis pas assez, mais tu comptes énormément pour moi.", from: "— H." },
+        { text: "Ton sourire, c'est mon endroit préféré.", from: "— H." },
+        { text: "Chaque jour avec toi est un cadeau que je ne prends jamais pour acquis.", from: "— H." },
+        { text: "Tu mérites tout le bonheur du monde — et j'aimerais en faire partie.", from: "— H." }
+      ];
+      const heartContainer = document.getElementById('heartMessages');
+      heartMsgs.forEach(m => {
+        const div = document.createElement('div');
+        div.className = 'heart-msg';
+        div.innerHTML = `${m.text}<span class="from">${m.from}</span>`;
+        heartContainer.appendChild(div);
+      });
+
+      /* ── Surprises ── */
+      const surprises = [
+        "Tu avances bien plus que tu ne le crois. 🌸",
+        "Petit rappel : tu es capable de belles choses.",
+        "Aujourd'hui compte, même les jours calmes.",
+        "Une plante qui pousse doucement reste une plante qui pousse.",
+        "Tu mérites une pause aussi douce que toi.",
+        "Continue comme ça, ton jardin te le rendra bien.",
+        "Respire un instant — tout va à son rythme.",
+        "Quelqu'un pense à toi en ce moment même. 💫",
+        "Tu es plus forte que tu ne le crois, Mounira.",
+        "Le monde est plus beau parce que tu es dedans.",
+        "N'oublie jamais : tu es aimée, tu es importante.",
+        "Chaque petit pas compte — comme chaque plante de ton jardin."
+      ];
+      surpriseText = document.getElementById('surpriseText');
+      window.newSurprise = function () {
+        let s;
+        do { s = surprises[Math.floor(Math.random() * surprises.length)]; } while (s === surpriseText.textContent && surprises.length > 1);
+        surpriseText.textContent = s;
+      };
+      window.newSurprise();
+
+      /* ── Capsule du temps ── */
+      capsuleInput = document.getElementById('capsuleInput');
+      capsuleSaved = document.getElementById('capsuleSaved');
+      savedCapsule = localStorage.getItem('jardin_capsule');
+      if (savedCapsule) capsuleInput.value = savedCapsule;
+
+      window.saveCapsule = function () {
+        localStorage.setItem('jardin_capsule', capsuleInput.value);
+        capsuleSaved.classList.add('show');
+        setTimeout(() => capsuleSaved.classList.remove('show'), 2500);
+      };
+
+      /* ── Médaillon secret (noms) ── */
+      medallion = document.getElementById('medallion');
+      flowerOverlay = document.getElementById('flowerOverlay');
+      flowerMessage = document.getElementById('flowerMessage');
+      noteInput = document.getElementById('noteInput');
+
+      function restartAnimation() {
+        const lines = medallion.querySelectorAll('path, circle');
+        lines.forEach(el => { el.style.animation = 'none'; });
+        void medallion.offsetWidth;
+        lines.forEach(el => { el.style.animation = ''; });
+      }
+
+      function setTheme(theme) {
+        medallion.classList.remove('theme-hani', 'theme-mounira', 'theme-both');
+        if (theme) medallion.classList.add(theme);
+      }
+
+      function openFlower(theme, message) {
+        setTheme(theme);
+        flowerMessage.textContent = message;
+        restartAnimation();
+        flowerOverlay.classList.add('active');
+      }
+      window.closeFlower = function () {
+        flowerOverlay.classList.remove('active');
+      };
+      flowerOverlay.addEventListener('click', (e) => { if (e.target === flowerOverlay) window.closeFlower(); });
+
+      function checkSecret(value) {
+        const clean = value.toLowerCase().replace(/\s+/g, '');
+        const hasHani = /hani/.test(clean);
+        const hasMoun = /moun/.test(clean);
+        if (hasHani && hasMoun) {
+          openFlower('theme-both', 'Hani & Mounira');
+        } else if (/haniel/.test(clean)) {
+          openFlower('theme-hani', 'Haniel');
+        } else if (/mounira/.test(clean)) {
+          openFlower('theme-mounira', 'Mounira');
+        }
+      }
+      noteInput.addEventListener('input', () => checkSecret(noteInput.value));
+
+      /* ── QUESTIONNAIRE ── */
+      quizForm = document.getElementById('quizForm');
+      quizDone = document.getElementById('quizDone');
+      quizQuestions = {
+        q1: "Quand tu passes du temps avec certaines personnes, ça te fait quoi ?",
+        q2: "Sur une échelle de 1 à 5, à quel point tu te sens vraiment toi-même quand tu es avec quelqu'un de spécial ?",
+        q3: "Y a des moments où une personne te revient en tête sans que tu t'y attendes ?",
+        q4: "Qu'est-ce qui t'attire chez quelqu'un en général ?",
+        q5: "Comment tu définirais ta relation avec quelqu'un qui compte vraiment pour toi ?",
+        q6: "Si tu pouvais dire quelque chose à une personne spéciale sans conséquence, ce serait quoi ?",
+        q7: "Si tu découvrais un message secret écrit par quelqu'un pour toi, est-ce que tu le lirais ?"
+      };
+
+      function hasQuizSubmitted() {
+        return !!localStorage.getItem(QUIZ_KEY);
+      }
+      function isAuthorized() {
+        return localStorage.getItem(AUTH_KEY) === '1';
+      }
+
+      function loadQuizState() {
+        const saved = localStorage.getItem(QUIZ_KEY);
+        if (saved) {
+          quizForm.style.display = 'none';
+          quizDone.classList.add('show');
+          document.getElementById('step2').classList.add('done');
+          document.getElementById('step3').classList.add('done');
+        }
+        updateAccessCard();
+        updateSteps();
+      }
+
+      function updateAccessCard() {
+        const card = document.getElementById('accessCard');
+        if (isAuthorized()) {
+          card.classList.add('show');
+          document.getElementById('step4').classList.add('done');
+        } else {
+          card.classList.remove('show');
+        }
+      }
+
+      function updateSteps() {
+        document.getElementById('step1').classList.add('done');
+      }
+
+      quizForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const fd = new FormData(quizForm);
+        const answers = {};
+        for (const [k, v] of fd.entries()) {
+          answers[k] = (v || '').toString().trim();
+        }
+        if (!answers.q1 || !answers.q2 || !answers.q3 || !answers.q4 || !answers.q5 || !answers.q7) {
+          alert('Merci de répondre à toutes les questions obligatoires.');
+          return;
+        }
+        const data = {
+          submittedAt: new Date().toISOString(),
+          answers: answers
+        };
+        localStorage.setItem(QUIZ_KEY, JSON.stringify(data));
+        quizForm.style.display = 'none';
+        quizDone.classList.add('show');
+        document.getElementById('step2').classList.add('done');
+        document.getElementById('step3').classList.add('done');
+        spawnConfetti(window.innerWidth / 2, window.innerHeight / 2, 25);
+      });
+
+      loadQuizState();
+
+      /* ── PANNEAU ADMIN (5 clics sur "pensé par H.") ── */
+      adminOverlay = document.getElementById('adminOverlay');
+      let adminClickCount = 0;
+      let adminClickTimer = null;
+      adminLoggedIn = false;
+
+      document.getElementById('adminTrigger').addEventListener('click', () => {
+        adminClickCount++;
+        clearTimeout(adminClickTimer);
+        adminClickTimer = setTimeout(() => { adminClickCount = 0; }, 800);
+        if (adminClickCount >= 5) {
+          adminClickCount = 0;
+          openAdmin();
+        }
+      });
+
+      function openAdmin() {
+        adminOverlay.classList.add('active');
+        document.getElementById('adminPassword').value = '';
+        document.getElementById('adminContent').classList.remove('show');
+        document.getElementById('adminLock').style.display = 'block';
+        adminLoggedIn = false;
+        setTimeout(() => document.getElementById('adminPassword').focus(), 300);
+      }
+      window.closeAdmin = function () {
+        adminOverlay.classList.remove('active');
+        adminLoggedIn = false;
+      };
+      adminOverlay.addEventListener('click', (e) => { if (e.target === adminOverlay) window.closeAdmin(); });
+      document.getElementById('adminPassword').addEventListener('keydown', e => {
+        if (e.key === 'Enter') window.tryAdminLogin();
+      });
+
+      window.tryAdminLogin = function () {
+        const val = document.getElementById('adminPassword').value.toLowerCase().replace(/\s+/g, '');
+        if (val === ADMIN_PASSWORD) {
+          adminLoggedIn = true;
+          document.getElementById('adminLock').style.display = 'none';
+          document.getElementById('adminContent').classList.add('show');
+          renderAdminPanel();
+        } else {
+          document.getElementById('adminPassword').value = '';
+          document.getElementById('adminPassword').focus();
+        }
+      };
+
+      function renderAdminPanel() {
+        const statusEl = document.getElementById('adminStatus');
+        const answersEl = document.getElementById('adminAnswers');
+        const saved = localStorage.getItem(QUIZ_KEY);
+
+        if (!saved) {
+          statusEl.className = 'admin-status pending';
+          statusEl.textContent = '⏳ Mounira n\'a pas encore répondu au questionnaire.';
+          answersEl.innerHTML = '';
+          return;
+        }
+
+        const data = JSON.parse(saved);
+        const date = new Date(data.submittedAt).toLocaleString('fr-FR');
+        const auth = isAuthorized();
+
+        statusEl.className = 'admin-status' + (auth ? '' : ' pending');
+        statusEl.textContent = auth
+          ? `✅ Réponses reçues le ${date} — Accès AUTORISÉ (Mounira peut voir le code)`
+          : `📋 Réponses reçues le ${date} — En attente de ta décision`;
+
+        let html = '';
+        for (const [key, question] of Object.entries(quizQuestions)) {
+          const ans = data.answers[key] || '(pas de réponse)';
+          html += `<div class="admin-answer"><div class="q">${question}</div><div class="a">${escapeHtml(ans)}</div></div>`;
+        }
+        answersEl.innerHTML = html;
+      }
+
+      window.authorizeAccess = function () {
+        localStorage.setItem(AUTH_KEY, '1');
+        renderAdminPanel();
+        updateAccessCard();
+        alert('Accès autorisé ! Mounira verra maintenant le code sur la page.');
+      };
+      window.revokeAccess = function () {
+        localStorage.removeItem(AUTH_KEY);
+        renderAdminPanel();
+        updateAccessCard();
+        alert('Accès révoqué.');
+      };
+
+      /* ── PORTE SECRÈTE ── */
+      secretDoor = document.getElementById('secretDoor');
+      confessionRoom = document.getElementById('confessionRoom');
+      lockForm = document.getElementById('lockForm');
+      doorBlockMsg = document.getElementById('doorBlockMsg');
+      doorWaitMsg = document.getElementById('doorWaitMsg');
+      doorPassword = document.getElementById('doorPassword');
+      doorError = document.getElementById('doorError');
+      doorUnlocked = false;
+
+      /* Triple-clic discret sur le footer pour ouvrir la porte */
+      let clickCount = 0;
+      let clickTimer = null;
+      document.getElementById('secretHint').addEventListener('click', () => {
+        clickCount++;
+        clearTimeout(clickTimer);
+        clickTimer = setTimeout(() => { clickCount = 0; }, 600);
+        if (clickCount >= 3) {
+          clickCount = 0;
+          openSecretDoor();
+        }
+      });
+
+      function resetDoorViews() {
+        lockForm.style.display = 'none';
+        doorBlockMsg.classList.remove('show');
+        doorWaitMsg.classList.remove('show');
+        confessionRoom.classList.remove('show-aveux');
+        doorError.classList.remove('show');
+      }
+
+      function openSecretDoor() {
+        secretDoor.classList.add('active');
+        resetDoorViews();
+
+        if (doorUnlocked) {
+          showConfessions();
+          return;
+        }
+
+        if (!hasQuizSubmitted()) {
+          doorBlockMsg.classList.add('show');
+          return;
+        }
+
+        if (!isAuthorized()) {
+          doorWaitMsg.classList.add('show');
+          return;
+        }
+
+        lockForm.style.display = 'block';
+        doorPassword.value = '';
+        setTimeout(() => doorPassword.focus(), 400);
+      }
+
+      window.closeSecretDoor = function () {
+        secretDoor.classList.remove('active');
+      };
+      secretDoor.addEventListener('click', (e) => { if (e.target === secretDoor) window.closeSecretDoor(); });
+
+      doorPassword.addEventListener('keydown', e => { if (e.key === 'Enter') window.tryUnlock(); });
+
+      window.tryUnlock = function () {
+        if (!isAuthorized()) {
+          doorWaitMsg.classList.add('show');
+          lockForm.style.display = 'none';
+          return;
+        }
+        const val = doorPassword.value.toLowerCase().replace(/\s+/g, '');
+        if (val === SECRET_PASSWORD) {
+          doorUnlocked = true;
+          doorError.classList.remove('show');
+          showConfessions();
+          spawnConfetti(window.innerWidth / 2, window.innerHeight / 3, 40);
+        } else {
+          doorError.classList.add('show');
+          doorPassword.value = '';
+          doorPassword.focus();
+        }
+      };
+
+      function showConfessions() {
+        lockForm.style.display = 'none';
+        doorBlockMsg.classList.remove('show');
+        doorWaitMsg.classList.remove('show');
+        confessionRoom.classList.add('show-aveux');
+      }
+
     }
-  }
 
-  render();
-
-  /* ── Petits mots pour Mounira ── */
-  const heartMsgs = [
-    { text: "Tu es la personne qui rend mes journées ordinaires extraordinaires.", from: "— H." },
-    { text: "Je ne te le dis pas assez, mais tu comptes énormément pour moi.", from: "— H." },
-    { text: "Ton sourire, c'est mon endroit préféré.", from: "— H." },
-    { text: "Chaque jour avec toi est un cadeau que je ne prends jamais pour acquis.", from: "— H." },
-    { text: "Tu mérites tout le bonheur du monde — et j'aimerais en faire partie.", from: "— H." }
-  ];
-  const heartContainer = document.getElementById('heartMessages');
-  heartMsgs.forEach(m => {
-    const div = document.createElement('div');
-    div.className = 'heart-msg';
-    div.innerHTML = `${m.text}<span class="from">${m.from}</span>`;
-    heartContainer.appendChild(div);
-  });
-
-  /* ── Surprises ── */
-  const surprises = [
-    "Tu avances bien plus que tu ne le crois. 🌸",
-    "Petit rappel : tu es capable de belles choses.",
-    "Aujourd'hui compte, même les jours calmes.",
-    "Une plante qui pousse doucement reste une plante qui pousse.",
-    "Tu mérites une pause aussi douce que toi.",
-    "Continue comme ça, ton jardin te le rendra bien.",
-    "Respire un instant — tout va à son rythme.",
-    "Quelqu'un pense à toi en ce moment même. 💫",
-    "Tu es plus forte que tu ne le crois, Mounira.",
-    "Le monde est plus beau parce que tu es dedans.",
-    "N'oublie jamais : tu es aimée, tu es importante.",
-    "Chaque petit pas compte — comme chaque plante de ton jardin."
-  ];
-  surpriseText = document.getElementById('surpriseText');
-  window.newSurprise = function(){
-    let s;
-    do { s = surprises[Math.floor(Math.random()*surprises.length)]; } while(s === surpriseText.textContent && surprises.length > 1);
-    surpriseText.textContent = s;
-  }
-  window.newSurprise();
-
-  /* ── Capsule du temps ── */
-  capsuleInput = document.getElementById('capsuleInput');
-  capsuleSaved = document.getElementById('capsuleSaved');
-  savedCapsule = localStorage.getItem('jardin_capsule');
-  if(savedCapsule) capsuleInput.value = savedCapsule;
-
-  window.saveCapsule = function(){
-    localStorage.setItem('jardin_capsule', capsuleInput.value);
-    capsuleSaved.classList.add('show');
-    setTimeout(() => capsuleSaved.classList.remove('show'), 2500);
-  }
-
-  /* ── Médaillon secret (noms) ── */
-  medallion = document.getElementById('medallion');
-  flowerOverlay = document.getElementById('flowerOverlay');
-  flowerMessage = document.getElementById('flowerMessage');
-  noteInput = document.getElementById('noteInput');
-
-  function restartAnimation(){
-    const lines = medallion.querySelectorAll('path, circle');
-    lines.forEach(el => { el.style.animation = 'none'; });
-    void medallion.offsetWidth;
-    lines.forEach(el => { el.style.animation = ''; });
-  }
-
-  function setTheme(theme){
-    medallion.classList.remove('theme-hani', 'theme-mounira', 'theme-both');
-    if(theme) medallion.classList.add(theme);
-  }
-
-  function openFlower(theme, message){
-    setTheme(theme);
-    flowerMessage.textContent = message;
-    restartAnimation();
-    flowerOverlay.classList.add('active');
-  }
-  window.closeFlower = function(){
-    flowerOverlay.classList.remove('active');
-  }
-  flowerOverlay.addEventListener('click', (e) => { if(e.target === flowerOverlay) window.closeFlower(); });
-
-  function checkSecret(value){
-    const clean = value.toLowerCase().replace(/\s+/g, '');
-    const hasHani = /hani/.test(clean);
-    const hasMoun = /moun/.test(clean);
-    if(hasHani && hasMoun){
-      openFlower('theme-both', 'Hani & Mounira');
-    } else if(/haniel/.test(clean)){
-      openFlower('theme-hani', 'Haniel');
-    } else if(/mounira/.test(clean)){
-      openFlower('theme-mounira', 'Mounira');
-    }
-  }
-  noteInput.addEventListener('input', () => checkSecret(noteInput.value));
-
-  /* ── QUESTIONNAIRE ── */
-  quizForm = document.getElementById('quizForm');
-  quizDone = document.getElementById('quizDone');
-  quizQuestions = {
-    q1: "Comment te sens-tu quand tu es avec Haniel ?",
-    q2: "À quel point te sens-tu à l'aise avec lui ? (1-5)",
-    q3: "Penses-tu souvent à lui ?",
-    q4: "Qu'est-ce qui te plaît chez lui ?",
-    q5: "Comment vois-tu votre relation aujourd'hui ?",
-    q6: "Y a-t-il quelque chose que tu aimerais lui dire ?",
-    q7: "Si une porte cachée renfermait quelque chose qu'il a écrit pour toi, l'ouvrirais-tu ?"
-  };
-
-  function hasQuizSubmitted(){
-    return !!localStorage.getItem(QUIZ_KEY);
-  }
-  function isAuthorized(){
-    return localStorage.getItem(AUTH_KEY) === '1';
-  }
-
-  function loadQuizState(){
-    const saved = localStorage.getItem(QUIZ_KEY);
-    if(saved){
-      quizForm.style.display = 'none';
-      quizDone.classList.add('show');
-      document.getElementById('step2').classList.add('done');
-      document.getElementById('step3').classList.add('done');
-    }
-    updateAccessCard();
-    updateSteps();
-  }
-
-  function updateAccessCard(){
-    const card = document.getElementById('accessCard');
-    if(isAuthorized()){
-      card.classList.add('show');
-      document.getElementById('step4').classList.add('done');
+    /* Initialisation robuste (gestion du cache et du rechargement) */
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initApp);
     } else {
-      card.classList.remove('show');
+      initApp();
     }
-  }
-
-  function updateSteps(){
-    document.getElementById('step1').classList.add('done');
-  }
-
-  quizForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const fd = new FormData(quizForm);
-    const answers = {};
-    for(const [k, v] of fd.entries()){
-      answers[k] = (v || '').toString().trim();
-    }
-    if(!answers.q2 || !answers.q3 || !answers.q5 || !answers.q7){
-      alert('Merci de répondre à toutes les questions obligatoires.');
-      return;
-    }
-    const data = {
-      submittedAt: new Date().toISOString(),
-      answers: answers
-    };
-    localStorage.setItem(QUIZ_KEY, JSON.stringify(data));
-    quizForm.style.display = 'none';
-    quizDone.classList.add('show');
-    document.getElementById('step2').classList.add('done');
-    document.getElementById('step3').classList.add('done');
-    spawnConfetti(window.innerWidth / 2, window.innerHeight / 2, 25);
-  });
-
-  loadQuizState();
-
-  /* ── PANNEAU ADMIN (5 clics sur "pensé par H.") ── */
-  adminOverlay = document.getElementById('adminOverlay');
-  let adminClickCount = 0;
-  let adminClickTimer = null;
-  adminLoggedIn = false;
-
-  document.getElementById('adminTrigger').addEventListener('click', () => {
-    adminClickCount++;
-    clearTimeout(adminClickTimer);
-    adminClickTimer = setTimeout(() => { adminClickCount = 0; }, 800);
-    if(adminClickCount >= 5){
-      adminClickCount = 0;
-      openAdmin();
-    }
-  });
-
-  function openAdmin(){
-    adminOverlay.classList.add('active');
-    document.getElementById('adminPassword').value = '';
-    document.getElementById('adminContent').classList.remove('show');
-    document.getElementById('adminLock').style.display = 'block';
-    adminLoggedIn = false;
-    setTimeout(() => document.getElementById('adminPassword').focus(), 300);
-  }
-  window.closeAdmin = function(){
-    adminOverlay.classList.remove('active');
-    adminLoggedIn = false;
-  }
-  adminOverlay.addEventListener('click', (e) => { if(e.target === adminOverlay) window.closeAdmin(); });
-  document.getElementById('adminPassword').addEventListener('keydown', e => {
-    if(e.key === 'Enter') window.tryAdminLogin();
-  });
-
-  window.tryAdminLogin = function(){
-    const val = document.getElementById('adminPassword').value.toLowerCase().replace(/\s+/g, '');
-    if(val === ADMIN_PASSWORD){
-      adminLoggedIn = true;
-      document.getElementById('adminLock').style.display = 'none';
-      document.getElementById('adminContent').classList.add('show');
-      renderAdminPanel();
-    } else {
-      document.getElementById('adminPassword').value = '';
-      document.getElementById('adminPassword').focus();
-    }
-  }
-
-  function renderAdminPanel(){
-    const statusEl = document.getElementById('adminStatus');
-    const answersEl = document.getElementById('adminAnswers');
-    const saved = localStorage.getItem(QUIZ_KEY);
-
-    if(!saved){
-      statusEl.className = 'admin-status pending';
-      statusEl.textContent = '⏳ Mounira n\'a pas encore répondu au questionnaire.';
-      answersEl.innerHTML = '';
-      return;
-    }
-
-    const data = JSON.parse(saved);
-    const date = new Date(data.submittedAt).toLocaleString('fr-FR');
-    const auth = isAuthorized();
-
-    statusEl.className = 'admin-status' + (auth ? '' : ' pending');
-    statusEl.textContent = auth
-      ? `✅ Réponses reçues le ${date} — Accès AUTORISÉ (Mounira peut voir le code)`
-      : `📋 Réponses reçues le ${date} — En attente de ta décision`;
-
-    let html = '';
-    for(const [key, question] of Object.entries(quizQuestions)){
-      const ans = data.answers[key] || '(pas de réponse)';
-      html += `<div class="admin-answer"><div class="q">${question}</div><div class="a">${escapeHtml(ans)}</div></div>`;
-    }
-    answersEl.innerHTML = html;
-  }
-
-  window.authorizeAccess = function(){
-    localStorage.setItem(AUTH_KEY, '1');
-    renderAdminPanel();
-    updateAccessCard();
-    alert('Accès autorisé ! Mounira verra maintenant le code sur la page.');
-  }
-  window.revokeAccess = function(){
-    localStorage.removeItem(AUTH_KEY);
-    renderAdminPanel();
-    updateAccessCard();
-    alert('Accès révoqué.');
-  }
-
-  /* ── PORTE SECRÈTE ── */
-  secretDoor = document.getElementById('secretDoor');
-  confessionRoom = document.getElementById('confessionRoom');
-  lockForm = document.getElementById('lockForm');
-  doorBlockMsg = document.getElementById('doorBlockMsg');
-  doorWaitMsg = document.getElementById('doorWaitMsg');
-  doorPassword = document.getElementById('doorPassword');
-  doorError = document.getElementById('doorError');
-  doorUnlocked = false;
-
-  /* Triple-clic discret sur le footer pour ouvrir la porte */
-  let clickCount = 0;
-  let clickTimer = null;
-  document.getElementById('secretHint').addEventListener('click', () => {
-    clickCount++;
-    clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => { clickCount = 0; }, 600);
-    if(clickCount >= 3){
-      clickCount = 0;
-      openSecretDoor();
-    }
-  });
-
-  function resetDoorViews(){
-    lockForm.style.display = 'none';
-    doorBlockMsg.classList.remove('show');
-    doorWaitMsg.classList.remove('show');
-    confessionRoom.classList.remove('show-aveux');
-    doorError.classList.remove('show');
-  }
-
-  function openSecretDoor(){
-    secretDoor.classList.add('active');
-    resetDoorViews();
-
-    if(doorUnlocked){
-      showConfessions();
-      return;
-    }
-
-    if(!hasQuizSubmitted()){
-      doorBlockMsg.classList.add('show');
-      return;
-    }
-
-    if(!isAuthorized()){
-      doorWaitMsg.classList.add('show');
-      return;
-    }
-
-    lockForm.style.display = 'block';
-    doorPassword.value = '';
-    setTimeout(() => doorPassword.focus(), 400);
-  }
-
-  window.closeSecretDoor = function(){
-    secretDoor.classList.remove('active');
-  }
-  secretDoor.addEventListener('click', (e) => { if(e.target === secretDoor) window.closeSecretDoor(); });
-
-  doorPassword.addEventListener('keydown', e => { if(e.key === 'Enter') window.tryUnlock(); });
-
-  window.tryUnlock = function(){
-    if(!isAuthorized()){
-      doorWaitMsg.classList.add('show');
-      lockForm.style.display = 'none';
-      return;
-    }
-    const val = doorPassword.value.toLowerCase().replace(/\s+/g, '');
-    if(val === SECRET_PASSWORD){
-      doorUnlocked = true;
-      doorError.classList.remove('show');
-      showConfessions();
-      spawnConfetti(window.innerWidth / 2, window.innerHeight / 3, 40);
-    } else {
-      doorError.classList.add('show');
-      doorPassword.value = '';
-      doorPassword.focus();
-    }
-  }
-
-  function showConfessions(){
-    lockForm.style.display = 'none';
-    doorBlockMsg.classList.remove('show');
-    doorWaitMsg.classList.remove('show');
-    confessionRoom.classList.add('show-aveux');
-  }
-
-  /* ── Confettis ── */
-  window.spawnConfetti = function(x, y, count){
-    const colors = ['#F6B8C6','#A9D9BC','#CBB9E8','#F6C453','#E8899F','#D9B25C'];
-    for(let i = 0; i < count; i++){
-      const c = document.createElement('div');
-      c.className = 'confetti';
-      c.style.left = (x + (Math.random() - 0.5) * 200) + 'px';
-      c.style.top = y + 'px';
-      c.style.background = colors[Math.floor(Math.random() * colors.length)];
-      c.style.animationDuration = (2 + Math.random() * 2) + 's';
-      c.style.animationDelay = (Math.random() * 0.5) + 's';
-      document.body.appendChild(c);
-      setTimeout(() => c.remove(), 4000);
-    }
-  }
-});
-</script>
+  </script>
 </body>
+
 </html>
