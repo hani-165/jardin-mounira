@@ -1423,23 +1423,26 @@
 
     /* ── Guide des étapes ── */
     .steps-guide {
-      background: linear-gradient(135deg, #fff 0%, #FFF5F8 100%);
-      border: 2px solid var(--pink);
+      background: #FFFFFF;
+      border: 2px solid #E8899F;
       border-radius: 22px;
       padding: 24px 22px;
       margin-bottom: 38px;
-      box-shadow: 0 6px 0 rgba(232, 137, 159, 0.12);
+      box-shadow: 0 8px 24px rgba(232, 137, 159, 0.16);
     }
 
     .steps-guide h2 {
-      margin: 0 0 6px;
-      font-size: 20px;
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #2D1A25;
     }
 
     .steps-guide .steps-intro {
-      font-size: 14px;
-      color: var(--ink-soft);
-      margin: 0 0 18px;
+      font-size: 15px;
+      color: #3D2B36;
+      font-weight: 600;
+      margin: 0 0 20px;
       line-height: 1.55;
     }
 
@@ -1447,113 +1450,135 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      counter-reset: step;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .step-item {
       display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 12px 0;
-      border-bottom: 1px dashed rgba(232, 137, 159, 0.25);
-      counter-increment: step;
-    }
-
-    .step-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 16px;
+      background: #FFF8F9;
+      border: 1.5px solid #F6B8C6;
+      border-radius: 16px;
+      transition: all 0.2s ease;
     }
 
     .step-num {
       flex-shrink: 0;
-      width: 28px;
-      height: 28px;
+      width: 36px;
+      height: 36px;
       background: linear-gradient(135deg, var(--pink-deep), #D76C85);
-      color: #fff;
+      color: #FFFFFF;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Fredoka', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgba(232, 137, 159, 0.35);
+    }
+
+    .step-item.done {
+      background: #F0FAF4;
+      border-color: #A9D9BC;
     }
 
     .step-item.done .step-num {
-      background: var(--mint-deep);
+      background: #489A70;
+      box-shadow: 0 3px 8px rgba(72, 154, 112, 0.35);
     }
 
     .step-body {
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.5;
-      color: var(--ink);
+      color: #2D1A25;
     }
 
     .step-body strong {
       display: block;
-      margin-bottom: 2px;
-      color: var(--ink);
+      margin-bottom: 3px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #2D1A25;
     }
 
     .step-body span {
-      color: var(--ink-soft);
-      font-size: 13px;
+      color: #4A3A44;
+      font-size: 14px;
+      font-weight: 500;
+      display: block;
     }
 
     /* ── Questionnaire ── */
     .quiz-card {
-      background: #fff;
+      background: #FFFFFF;
+      border: 2.5px solid #CBB9E8;
       border-radius: 22px;
-      padding: 24px 22px;
-      box-shadow: 0 6px 0 rgba(203, 185, 232, 0.2);
+      padding: 26px 22px;
+      box-shadow: 0 8px 24px rgba(203, 185, 232, 0.25);
     }
 
     .quiz-card .quiz-intro {
-      font-size: 14px;
-      color: var(--ink-soft);
+      font-size: 15px;
+      color: #382433;
+      font-weight: 600;
       line-height: 1.55;
-      margin: 0 0 20px;
+      margin: 0 0 24px;
+      padding: 14px 16px;
+      background: #F9F5FF;
+      border-left: 4px solid var(--pink-deep);
+      border-radius: 12px;
     }
 
     .quiz-q {
-      margin-bottom: 22px;
+      margin-bottom: 24px;
+      background: #FCFAFF;
+      border: 1.5px solid #E4D8F3;
+      border-radius: 16px;
+      padding: 18px 16px;
     }
 
     .quiz-q label {
       display: block;
-      font-size: 14.5px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 8px;
-      line-height: 1.45;
+      font-size: 16px;
+      font-weight: 700;
+      color: #261624;
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
 
     .quiz-q textarea,
     .quiz-q select {
       width: 100%;
-      border: 2px solid var(--lavender);
+      border: 2px solid #CBB9E8;
       border-radius: 14px;
-      padding: 11px 14px;
+      padding: 12px 14px;
       font-family: inherit;
-      font-size: 14px;
-      color: var(--ink);
-      background: #fff;
+      font-size: 15px;
+      color: #261624;
+      background: #FFFFFF;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
     }
 
     .quiz-q textarea {
-      min-height: 72px;
+      min-height: 85px;
       resize: vertical;
     }
 
     .quiz-q textarea:focus,
     .quiz-q select:focus {
       outline: none;
-      border-color: var(--pink-deep);
+      border-color: #E8899F;
+      box-shadow: 0 0 0 3px rgba(232, 137, 159, 0.25);
     }
 
     .scale-btns {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
@@ -1563,35 +1588,54 @@
 
     .scale-btns label {
       flex: 1;
-      min-width: 44px;
-      text-align: center;
-      padding: 10px 8px;
-      border: 2px solid var(--lavender);
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 15px;
+      min-width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #CBB9E8;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 17px;
+      color: #3E2F52;
+      background: #FFFFFF;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.2s;
       margin: 0;
     }
 
+    .scale-btns label:hover {
+      border-color: #E8899F;
+      transform: translateY(-2px);
+    }
+
     .scale-btns input:checked+label {
-      background: var(--lavender);
-      border-color: #9B7EC8;
-      color: #3E2F52;
+      background: linear-gradient(135deg, #E8899F, #CBB9E8);
+      border-color: #E8899F;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(232, 137, 159, 0.4);
+      transform: scale(1.04);
     }
 
     .quiz-submit {
       width: 100%;
       border: none;
       background: linear-gradient(135deg, var(--pink-deep), #D76C85);
-      color: #fff;
-      padding: 14px;
+      color: #FFFFFF;
+      padding: 15px;
       border-radius: 16px;
       font-family: 'Fredoka', sans-serif;
-      font-size: 15px;
+      font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
-      margin-top: 8px;
+      margin-top: 12px;
+      box-shadow: 0 6px 16px rgba(232, 137, 159, 0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .quiz-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(232, 137, 159, 0.45);
     }
 
     .quiz-submit:disabled {
@@ -1860,12 +1904,85 @@
     }
 
     body.night .steps-guide {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(246, 184, 198, 0.3);
+      background: #251B29 !important;
+      border: 2px solid #E8899F !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    body.night .steps-guide h2 {
+      color: #FFF0F5 !important;
+    }
+
+    body.night .steps-guide .steps-intro {
+      color: #E6D5E9 !important;
+    }
+
+    body.night .step-item {
+      background: #1C1320 !important;
+      border-color: #553E5C !important;
+    }
+
+    body.night .step-item.done {
+      background: #14241B !important;
+      border-color: #3B7D58 !important;
+    }
+
+    body.night .step-body strong {
+      color: #FFFFFF !important;
+    }
+
+    body.night .step-body span {
+      color: #DECEE2 !important;
     }
 
     body.night .quiz-card {
-      background: rgba(255, 255, 255, 0.06);
+      background: #251B29 !important;
+      border: 2px solid #9D84B8 !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    body.night .quiz-card .quiz-intro {
+      background: #1C1320 !important;
+      color: #E8D8ED !important;
+      border-left-color: #E8899F !important;
+    }
+
+    body.night .quiz-q {
+      background: #1E1423 !important;
+      border-color: #4D3754 !important;
+    }
+
+    body.night .quiz-q label {
+      color: #FFFFFF !important;
+    }
+
+    body.night .quiz-q textarea,
+    body.night .quiz-q select {
+      background: #2D1D33 !important;
+      border-color: #6C4F78 !important;
+      color: #FFF6FA !important;
+    }
+
+    body.night .quiz-q textarea::placeholder {
+      color: #A38DAF !important;
+    }
+
+    body.night .quiz-q textarea:focus,
+    body.night .quiz-q select:focus {
+      border-color: #F6B8C6 !important;
+      box-shadow: 0 0 0 3px rgba(246, 184, 198, 0.25) !important;
+    }
+
+    body.night .scale-btns label {
+      background: #2D1D33 !important;
+      border-color: #6C4F78 !important;
+      color: #FFF0F5 !important;
+    }
+
+    body.night .scale-btns input:checked+label {
+      background: linear-gradient(135deg, #E8899F, #9D84B8) !important;
+      border-color: #F6B8C6 !important;
+      color: #FFFFFF !important;
     }
 
     @media(max-width:480px) {
@@ -1916,8 +2033,7 @@
     <!-- Guide des étapes -->
     <div class="steps-guide">
       <h2>🗺️ Suis bien ces étapes</h2>
-      <p class="steps-intro">Prends ton temps, explore chaque coin de ce jardin. Quelque part, une porte cachée renferme
-        des aveux… mais tu devras mériter d'y entrer.</p>
+      <p class="steps-intro">Prends ton temps, explore chaque recoin de ce jardin. Une porte secrète t'attendra à la fin de l'aventure.</p>
       <ol class="step-list" id="stepList">
         <li class="step-item" id="step1">
           <div class="step-num">1</div>
@@ -1930,24 +2046,21 @@
           <div class="step-num">2</div>
           <div class="step-body">
             <strong>Réponds au questionnaire</strong>
-            <span>Sois sincère, réponds avec ton cœur. Il n'y a pas de bonne ou mauvaise réponse — seulement la
-              tienne.</span>
+            <span>Sois sincère, réponds avec ton cœur. Il n'y a pas de bonne ou mauvaise réponse — seulement la tienne.</span>
           </div>
         </li>
         <li class="step-item" id="step3">
           <div class="step-num">3</div>
           <div class="step-body">
             <strong>Attends l'autorisation</strong>
-            <span>Tes réponses seront lues avec attention. Si tout va bien, tu recevras l'accès à la porte
-              secrète.</span>
+            <span>Tes réponses seront lues avec attention. Si tout va bien, tu recevras l'accès à la porte secrète.</span>
           </div>
         </li>
         <li class="step-item" id="step4">
           <div class="step-num">4</div>
           <div class="step-body">
             <strong>Trouve la porte secrète</strong>
-            <span>Triple-clique sur les <em>· · ·</em> en bas de page. Entre le code qui t'aura été donné — c'est là que
-              se trouvent les aveux.</span>
+            <span>Triple-clique sur les <em>· · ·</em> en bas de page. Entre le code qui t'aura été donné pour découvrir ce qui s'y cache.</span>
           </div>
         </li>
       </ol>
@@ -1956,11 +2069,9 @@
     <!-- Carte d'accès (visible uniquement après autorisation admin) -->
     <div class="access-card" id="accessCard">
       <h3>🔓 Ton accès a été débloqué !</h3>
-      <p>Tu peux maintenant ouvrir la porte secrète. Triple-clique sur <strong>· · ·</strong> en bas de page, puis entre
-        ce code :</p>
+      <p>Tu peux maintenant ouvrir la porte secrète. Triple-clique sur <strong>· · ·</strong> en bas de page, puis entre ce code :</p>
       <div class="code-hint" id="accessCodeHint">hanieljtm</div>
-      <p style="margin-top:12px; font-size:13px;">C'est là que se trouvent les aveux… prends le temps de les lire. 💛
-      </p>
+      <p style="margin-top:12px; font-size:13px;">Un message secret t'attend… prends le temps de le découvrir. 💛</p>
     </div>
 
     <section id="quizSection">
@@ -2027,8 +2138,7 @@
           <button type="submit" class="quiz-submit" id="quizSubmit">Envoyer mes réponses 🌸</button>
         </form>
         <div class="quiz-done" id="quizDone">
-          <p>✅ <strong>Merci Mounira.</strong> Tes réponses ont été enregistrées avec soin.<br><br>Maintenant, patience
-            — si tout est en ordre, tu recevras bientôt l'accès à la porte secrète où se trouvent les aveux. 🌿</p>
+          <p>✅ <strong>Merci Mounira.</strong> Tes réponses ont été enregistrées avec soin.<br><br>Maintenant, patience — si tout est en ordre, tu recevras bientôt l'accès à la porte secrète. 🌿</p>
         </div>
       </div>
     </section>
@@ -2069,8 +2179,7 @@
       <div class="bouquet-reward" id="bouquetReward">
         <span class="bouquet-emoji">💐</span>
         <h3>Ton jardin est en fleur !</h3>
-        <p>Toutes tes plantes ont fleuri aujourd'hui — comme toi, tu fais fleurir tout ce que tu touches. Haniel est
-          fier de toi. 🌸</p>
+        <p>Toutes tes plantes ont fleuri aujourd'hui — ton jardin est resplendissant et plein de vie. Bravo ! 🌸</p>
       </div>
     </section>
 
@@ -2081,11 +2190,6 @@
         <div class="visit-calendar" id="visitCalendar"></div>
         <div class="visit-streak" id="visitStreak"></div>
       </div>
-    </section>
-
-    <section>
-      <h2>💝 Petits mots pour toi</h2>
-      <div class="heart-messages" id="heartMessages"></div>
     </section>
 
     <section>
@@ -2359,16 +2463,16 @@
 
       /* ── Carte à gratter ── */
       const scratchCompliments = [
-        "Tu es la plus belle surprise de ma vie.",
-        "Ton rire, c'est ma chanson préférée.",
-        "Je suis chanceux(se) de te connaître.",
-        "Tu mérites toutes les fleurs du monde.",
-        "Avec toi, même un lundi devient un dimanche.",
-        "Tu es mon endroit préféré, peu importe où.",
-        "Chaque jour avec toi est un cadeau.",
-        "Tu es plus forte et plus belle que tu ne le crois.",
-        "Quelqu'un t'aime — vraiment, profondément.",
-        "Tu fais briller les gens autour de toi."
+        "Ton sourire a le don d'illuminer la journée de ceux qui t'entourent. ✨",
+        "Tu as une gentillesse rare et précieuse. 🌸",
+        "Tu es plus forte et plus courageuse que tu ne le penses. 🌱",
+        "Ta présence apporte toujours une touche de calme et de douceur. 🌿",
+        "Ne doute jamais de toi : tu es capable de choses formidables. ⭐",
+        "Tu mérites toutes les belles choses et tout le bonheur du monde. 🌼",
+        "Ton authenticité est ta plus belle qualité. 💫",
+        "Prends le temps de souffler aujourd'hui, tu fais un travail formidable. 🌷",
+        "Tu fais briller la positivité partout où tu passes. ☀️",
+        "Reste telle que tu es : unique, douce et lumineuse. ✨"
       ];
       (function initScratchCard() {
         const canvas = document.getElementById('scratchCanvas');
@@ -2463,11 +2567,15 @@
         return streak;
       }
 
-      /* ── Clic mascotte → cœurs + message ── */
+      /* ── Clic mascotte → encouragement + message ── */
       const mascotTips = [
-        "Tu es adorable 💕", "Haniel pense à toi", "Clique encore !",
-        "Tu fais pousser mon cœur 🌱", "Mon emoji préféré c'est toi",
-        "Bisou virtuel 💋", "Tu es ma fleur préférée"
+        "Prends bien soin de toi aujourd'hui ! 🌱",
+        "Une petite pause fait toujours du bien ☕",
+        "Clique encore pour faire danser la mascotte ! ✨",
+        "Chaque plante pousse à son rythme 🌸",
+        "Tu as un sourire magnifique ☀️",
+        "Respire un bon coup et passe une belle journée 🌿",
+        "Un petit pas à la fois, tu avances super bien ! 💫"
       ];
       document.getElementById('mascot').addEventListener('click', function (e) {
         const wrap = document.getElementById('mascotWrap');
@@ -2595,22 +2703,6 @@
 
       render();
 
-      /* ── Petits mots pour Mounira ── */
-      const heartMsgs = [
-        { text: "Tu es la personne qui rend mes journées ordinaires extraordinaires.", from: "— H." },
-        { text: "Je ne te le dis pas assez, mais tu comptes énormément pour moi.", from: "— H." },
-        { text: "Ton sourire, c'est mon endroit préféré.", from: "— H." },
-        { text: "Chaque jour avec toi est un cadeau que je ne prends jamais pour acquis.", from: "— H." },
-        { text: "Tu mérites tout le bonheur du monde — et j'aimerais en faire partie.", from: "— H." }
-      ];
-      const heartContainer = document.getElementById('heartMessages');
-      heartMsgs.forEach(m => {
-        const div = document.createElement('div');
-        div.className = 'heart-msg';
-        div.innerHTML = `${m.text}<span class="from">${m.from}</span>`;
-        heartContainer.appendChild(div);
-      });
-
       /* ── Surprises ── */
       const surprises = [
         "Tu avances bien plus que tu ne le crois. 🌸",
@@ -2620,10 +2712,10 @@
         "Tu mérites une pause aussi douce que toi.",
         "Continue comme ça, ton jardin te le rendra bien.",
         "Respire un instant — tout va à son rythme.",
-        "Quelqu'un pense à toi en ce moment même. 💫",
+        "Tu apportes tellement de positivité autour de toi. 💫",
         "Tu es plus forte que tu ne le crois, Mounira.",
-        "Le monde est plus beau parce que tu es dedans.",
-        "N'oublie jamais : tu es aimée, tu es importante.",
+        "Le monde est plus beau avec de la douceur.",
+        "N'oublie jamais : tu es précieuse et capable de tout.",
         "Chaque petit pas compte — comme chaque plante de ton jardin."
       ];
       surpriseText = document.getElementById('surpriseText');
